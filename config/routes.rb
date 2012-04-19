@@ -1,4 +1,6 @@
 Ventureboard::Application.routes.draw do
+  resources :minors
+
   resources :majors
 
   resources :skills

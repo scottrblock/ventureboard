@@ -1,0 +1,23 @@
+<h1>Listing minors</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @minors.each do |minor| %>
+  <tr>
+    <td><%= minor.name %></td>
+    <td><%= link_to 'Show', minor %></td>
+    <td><%= link_to 'Edit', edit_minor_path(minor) %></td>
+    <td><%= link_to 'Destroy', minor, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Minor', new_minor_path %>
