@@ -1,4 +1,6 @@
 Ventureboard::Application.routes.draw do
+  resources :types
+
   resources :users
 
   # The priority is based upon order of creation:
