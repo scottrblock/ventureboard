@@ -22,6 +22,13 @@ end
 
 gem 'jquery-rails'
 
+gem 'authlogic', :git => 'https://github.com/kreetitech/authlogic.git'
+gem 'aws-sdk', '~> 1.3.4'
+
+group :production do
+  gem "rmagick", "2.12.0", :require => 'RMagick'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
