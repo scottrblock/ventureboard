@@ -2,13 +2,36 @@
 <html>
 <head>
   <title>Ventureboard</title>
+  
+  <link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag ("/css/skeleton/skeleton"),  :media => "all"  %>
+  <%= stylesheet_link_tag ("/css/skeleton/base"),  :media => "all"  %>
+  <%= stylesheet_link_tag ("/css/skeleton/local"),  :media => "all"  %>
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="container">
+		<header class="sixteen columns">
+			<h1><span class="red">Venture</span>Board</h1>
+		</header>
+		<nav class="sixteen columns">
+			<ul class="primary-nav">
+				
+			</ul>
+		</nav>
+		<section class="sixteen columns main-inner">
+			<%= yield %>
+		</section>
+		<footer class ="sixteen columns clearfix"> 
+			<div class="footer clearfix sixteen columns alpha">
+				
+			</div>
+		</footer>
 
-<%= yield %>
-
+	</div>
 </body>
 </html>
