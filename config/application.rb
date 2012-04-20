@@ -63,6 +63,6 @@ module Ventureboard
     config.assets.version = '1.0'
     
     # Prevent the Rails environment to be loaded when assets:precompile is executed.
-    config.assests.initialize_on_precompile = false 
+    config.assets.initialize_on_precompile = false 
   end
 end
