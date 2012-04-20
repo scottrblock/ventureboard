@@ -19,7 +19,7 @@
 /*------------------------------------*\
 	#Site Styles
 \*------------------------------------*/
-.green-button {
+div .green-button, div a.green-button, div input.green-button {
 	-moz-box-shadow:inset 0px 1px 0px 0px #c1ed9c;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #c1ed9c;
 	box-shadow:inset 0px 1px 0px 0px #c1ed9c;
@@ -39,13 +39,13 @@
 	text-decoration:none;
 	text-shadow:1px 1px 0px #689324;
 }
-.green-button:hover {
+div .green-button:hover, div a.green-button:hover, div input.green-button:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #8cb82b), color-stop(1, #9dce2c) );
 	background:-moz-linear-gradient( center top, #8cb82b 5%, #9dce2c 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8cb82b', endColorstr='#9dce2c');
 	background-color:#8cb82b;
 }
-.green-button:active {
+div .green-button:active, div a.green-button:active, div input.green-button:active {
 	position:relative;
 	top:1px;
 }
