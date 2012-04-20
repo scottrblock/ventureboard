@@ -13,6 +13,8 @@ Ventureboard::Application.routes.draw do
 
   resources :users
 
+  match 'signup', :controller => 'users', :action => 'new', :as => 'signup'  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
