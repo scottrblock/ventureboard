@@ -1,4 +1,6 @@
 Ventureboard::Application.routes.draw do
+  get "pages/home"
+
   resources :organizations
 
   resources :minors
@@ -13,7 +15,11 @@ Ventureboard::Application.routes.draw do
 
   resources :users
 
+<<<<<<< HEAD
+  root :to => 'pages#home'
+=======
   match 'signup', :controller => 'users', :action => 'new', :as => 'signup'  
+>>>>>>> a82e150f26caa13cd5a3293357e33efcd164155b
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
