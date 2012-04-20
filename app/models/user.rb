@@ -6,7 +6,6 @@
 #  email               :string(255)
 #  first_name          :string(255)
 #  last_name           :string(255)
-#  full_name           :string(255)
 #  created_at          :datetime        not null
 #  updated_at          :datetime        not null
 #  password_salt       :string(255)
@@ -24,7 +23,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :first_name, :full_name, :last_name
+  attr_accessible :email, :first_name, :last_name
 
   acts_as_authentic do |c|
     c.login_field :email
@@ -63,5 +62,9 @@ class User < ActiveRecord::Base
   validates :password,  :presence   => true,
             :confirmation   => true,
             :length     => { :within => 6..20 }
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 
 end
