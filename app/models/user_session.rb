@@ -1,3 +1,8 @@
 class UserSession < Authlogic::Session::Base
-  # attr_accessible :title, :body
+  logout_on_timeout true
+
+  def to_key
+    id ? id : nil
+  end
+
 end

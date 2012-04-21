@@ -1,0 +1,14 @@
+<%= form_for(@user_session, :url => user_session_path) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Login" , :class => 'green-button' %>
+  </div>
+<% end %>
+

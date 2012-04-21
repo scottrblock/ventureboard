@@ -23,7 +23,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :first_name, :last_name
+  attr_accessible :email, :first_name, :last_name, :password
 
   acts_as_authentic do |c|
     c.login_field :email
@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   has_many :minors
   has_many :organizations
 
-  has_one :type
+  has_one :user_type
 
   has_attached_file :avatar, {
     :styles => { :medium => "50x50#" },
@@ -50,8 +50,6 @@ class User < ActiveRecord::Base
  
   validates :last_name,  :presence => true,
             :length   => { :maximum => 50 }
- 
-  #put in function for full name.
  
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

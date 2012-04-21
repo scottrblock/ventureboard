@@ -1,4 +1,6 @@
 Ventureboard::Application.routes.draw do
+  resources :user_types
+
   get "pages/home"
 
   resources :organizations
@@ -15,9 +17,15 @@ Ventureboard::Application.routes.draw do
 
   resources :users
 
+  resource :user_session
+ 
   root :to => 'pages#home'
 
   match 'signup', :controller => 'users', :action => 'new', :as => 'signup'  
+
+  
+  match 'login', :controller => 'user_sessions', :action => 'new', :as => 'login'
+  match 'logout', :controller => 'user_sessions', :action => 'destroy', :as => 'logout'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
