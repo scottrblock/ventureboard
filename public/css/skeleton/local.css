@@ -19,6 +19,14 @@
 /*------------------------------------*\
 	#Site Styles
 \*------------------------------------*/
+
+::selection {
+	background: #F5B8B8; /* Safari */
+	}
+::-moz-selection {
+	background: #F5B8B8; /* Firefox */
+}
+
 div .green-button, div a.green-button, div input.green-button {
 	-moz-box-shadow:inset 0px 1px 0px 0px #c1ed9c;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #c1ed9c;
