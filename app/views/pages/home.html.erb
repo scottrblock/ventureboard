@@ -5,7 +5,12 @@
 	</p>
 </section>
 <section class="six columns omega">
-	<h3>Begin Today:</h3>
-	<a href="/login" class="green-button">Login</a>
-	<a href="/signup" class="green-button">Sign Up</a>
+	<% unless current_user %>
+		<h3>Begin Today:</h3>
+		<a href="/login" class="green-button">Login</a>
+		<a href="/signup" class="green-button">Sign Up</a>
+	<% else %>
+		<h3> Welcome to the network. </h3>
+		<a><%= link_to "Logout", logout_path %></a>	
+	<% end %>		
 </section>
