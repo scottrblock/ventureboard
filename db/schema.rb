@@ -11,12 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120421145333) do
+ActiveRecord::Schema.define(:version => 20120423142729) do
 
   create_table "interests", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "interests_users", :id => false, :force => true do |t|
+    t.integer "interest_id"
+    t.integer "user_id"
   end
 
   create_table "majors", :force => true do |t|
@@ -25,16 +30,31 @@ ActiveRecord::Schema.define(:version => 20120421145333) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "majors_users", :id => false, :force => true do |t|
+    t.integer "major_id"
+    t.integer "user_id"
+  end
+
   create_table "minors", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
+  create_table "minors_users", :id => false, :force => true do |t|
+    t.integer "minor_id"
+    t.integer "user_id"
+  end
+
   create_table "organizations", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "organizations_users", :id => false, :force => true do |t|
+    t.integer "organization_id"
+    t.integer "user_id"
   end
 
   create_table "sessions", :force => true do |t|
@@ -51,6 +71,11 @@ ActiveRecord::Schema.define(:version => 20120421145333) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "skills_users", :id => false, :force => true do |t|
+    t.integer "skills_id"
+    t.integer "user_id"
   end
 
   create_table "user_types", :force => true do |t|
@@ -77,6 +102,9 @@ ActiveRecord::Schema.define(:version => 20120421145333) do
     t.string   "current_login_ip"
     t.string   "last_login_ip"
     t.string   "crypted_password"
+    t.integer  "user_type_id"
   end
+
+  add_index "users", ["user_type_id"], :name => "index_users_on_user_type_id"
 
 end

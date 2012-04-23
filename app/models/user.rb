@@ -30,13 +30,15 @@ class User < ActiveRecord::Base
     c.require_password_confirmation = false 
   end
 
-  has_many :interests
-  has_many :skills
-  has_many :majors
-  has_many :minors
-  has_many :organizations
+  # Many-to-many relationships.
+  has_and_belongs_to_many :interests
+  has_and_belongs_to_many :skills
+  has_and_belongs_to_many :majors
+  has_and_belongs_to_many :minors
+  has_and_belongs_to_many :organizations
 
-  has_one :user_type
+  # One-to-many relationship.
+  belongs_to :user_type
 
   has_attached_file :avatar, {
     :styles => { :medium => "50x50#" },
