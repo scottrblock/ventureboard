@@ -20,6 +20,7 @@
 #  current_login_ip    :string(255)
 #  last_login_ip       :string(255)
 #  crypted_password    :string(255)
+#  user_type_id        :integer
 #
 
 class User < ActiveRecord::Base
@@ -69,8 +70,8 @@ class User < ActiveRecord::Base
   
   def possessive_name
 	p = "#{first_name} #{last_name}"
-	if [-1] == "s"
-		p+= '\'' if p[-1] == 's'
+	if p[-1] == "s"
+		p+= "'"
 	else
 		p += "'s"
 	end

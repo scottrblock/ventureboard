@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user = current_user_session && current_user_session.record
+    @current_user = current_user_session && current_user_session.user
   end
 
   def require_user
