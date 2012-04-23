@@ -5,12 +5,15 @@
   <link rel="shortcut icon" href="/images/favicon.ico" />
   <link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag ("/css/superfish"),  :media => "all"  %>
   <%= stylesheet_link_tag ("/css/skeleton/skeleton"),  :media => "all"  %>
   <%= stylesheet_link_tag ("/css/skeleton/base"),  :media => "all"  %>
   <%= stylesheet_link_tag ("/css/skeleton/local"),  :media => "all"  %>
 
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "../js/superfish.js" %>
+  <%= javascript_include_tag "../js/local.js" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -19,8 +22,16 @@
 			<a href="/"><h1><span class="red">Venture</span>Board</h1></a>
 		</header>
 		<nav class="sixteen columns">
-			<ul class="primary-nav">
-				
+			<ul class="sf-menu">
+				 <% if current_user %>
+					<li>
+						<a href="#">Account <b class="caret"></b></a>
+						<ul class="sub_menu">
+							<li><%= link_to "My Profile", current_user %></li>
+							<li><%= link_to "Logout", logout_path %></li>
+						</ul>
+					</li>
+				<% end %>
 			</ul>
 		</nav>
 		<section class="sixteen columns main-inner">

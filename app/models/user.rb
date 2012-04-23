@@ -64,5 +64,15 @@ class User < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
+  
+  def possessive_name
+	p = "#{first_name} #{last_name}"
+	if [-1] == "s"
+		p+= '\'' if p[-1] == 's'
+	else
+		p += "'s"
+	end
+	return p
+  end
 
 end

@@ -27,6 +27,8 @@
 	background: #F5B8B8; /* Firefox */
 }
 
+.sub_menu li:last-child a{border-bottom: 0px solid #fff;}
+
 div .green-button, div a.green-button, div input.green-button {
 	-moz-box-shadow:inset 0px 1px 0px 0px #c1ed9c;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #c1ed9c;
@@ -59,13 +61,14 @@ div .green-button:active, div a.green-button:active, div input.green-button:acti
 }
 
 
-
 header{background: #eee;}
 header h1{padding: 0 10px;}
 h1 .red{color: #FC2626;}
 
 .grey-box{background: #fff;  -moz-opacity:.85; filter:alpha(opacity=85); opacity:.85; padding: 10px;}
 
+.sf-menu li li{background: #ccc;}
+.sf-menu li{background: #ccc;}
 
 
 /*------------------------------------*\

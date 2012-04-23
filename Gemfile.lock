@@ -44,6 +44,7 @@ GEM
       json (~> 1.4)
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
+    bootstrap-sass (2.0.0)
     builder (3.0.0)
     cocaine (0.2.1)
     coffee-rails (3.2.2)
@@ -149,6 +150,7 @@ DEPENDENCIES
   annotate (~> 2.4.1.beta)
   authlogic!
   aws-sdk (~> 1.3.4)
+  bootstrap-sass (= 2.0.0)
   coffee-rails (~> 3.2.1)
   heroku
   jquery-rails

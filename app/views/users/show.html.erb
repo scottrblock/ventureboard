@@ -1,25 +1,24 @@
 <p id="notice"><%= notice %></p>
+<h2><%= @user.possessive_name %> Profile</h2>
+
+<%= link_to 'Edit Profile', edit_user_path(@user) %>
 
 <p>
-  <b>Email:</b>
+  <h4>Email:</h4>
   <%= @user.email %>
 </p>
 
 <p>
-  <b>First name:</b>
+  <h4>First name:</h4>
   <%= @user.first_name %>
 </p>
 
 <p>
-  <b>Last name:</b>
+  <h4>Last name:</h4>
   <%= @user.last_name %>
 </p>
 
 <p>
-  <b>Full name:</b>
+  <h4>Full name:</h4>
   <%= @user.full_name %>
 </p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
