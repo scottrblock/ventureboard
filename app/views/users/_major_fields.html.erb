@@ -1,0 +1,8 @@
+<fieldset>
+  <%= f.label :name, "Major:" %>
+  <%= collection_select(:user, :major_ids, Major.all, :id, :name) %>
+  
+
+  <%= f.check_box :_destroy, :class => 'remove-major-box' %>
+  <%= f.label :_destroy, "Remove Major" %>
+</fieldset>

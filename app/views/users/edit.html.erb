@@ -1,5 +1,7 @@
 <h1>Editing <%= @user.possessive_name %> Profile:</h1>
 
+
+
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -12,11 +14,16 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+ 
+  <%= f.fields_for :majors do |builder| %>
+	<%= render 'major_fields', f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add Major", f, :majors %>
+ 
+ <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
-  </div>
+  </div>  
   <div class="field">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name %>

@@ -24,8 +24,15 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :first_name, :last_name, :password
-
+  def initialize(attributes=nil)
+    super
+    #we override the initialize method and ensure we always have 
+    #a major instance created. This makes sure we don't get any
+    #nil reference errors in our forms
+    self.build_majors unless self.majors
+  end
+  attr_accessible :email, :first_name, :last_name, :password, :majors_attributes, :majors, :major_ids, :major_id
+  
   acts_as_authentic do |c|
     c.login_field :email
     c.require_password_confirmation = false 
@@ -37,6 +44,8 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :majors
   has_and_belongs_to_many :minors
   has_and_belongs_to_many :organizations
+  
+  accepts_nested_attributes_for :majors, allow_destroy: true
 
   # One-to-many relationship.
   belongs_to :user_type
