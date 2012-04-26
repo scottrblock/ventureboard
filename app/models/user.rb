@@ -24,6 +24,7 @@
 #
 
 class User < ActiveRecord::Base
+=begin
   def initialize(attributes=nil)
     super
     #we override the initialize method and ensure we always have 
@@ -31,7 +32,10 @@ class User < ActiveRecord::Base
     #nil reference errors in our forms
     self.build_majors unless self.majors
   end
-  attr_accessible :email, :first_name, :last_name, :password, :majors_attributes, :majors, :major_ids, :major_id
+=end
+  attr_accessible :email, :first_name, :last_name, :password, 
+		  :majors_attributes, :major_ids, :major_id, :majors,
+		  :minors_attributes, :minor_ids, :minor_id, :minors
   
   acts_as_authentic do |c|
     c.login_field :email
@@ -40,12 +44,17 @@ class User < ActiveRecord::Base
 
   # Many-to-many relationships.
   has_and_belongs_to_many :interests
+
   has_and_belongs_to_many :skills
+
   has_and_belongs_to_many :majors
+  accepts_nested_attributes_for :majors, allow_destroy: true 
+
   has_and_belongs_to_many :minors
+  accepts_nested_attributes_for :minors, allow_destroy: true
+
   has_and_belongs_to_many :organizations
-  
-  accepts_nested_attributes_for :majors, allow_destroy: true
+  #  accepts_nested_attributes_for :organizations, allow_destroy: true
 
   # One-to-many relationship.
   belongs_to :user_type

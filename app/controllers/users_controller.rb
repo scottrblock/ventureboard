@@ -34,6 +34,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    debugger
     @user = User.find(params[:id])
     if current_user != @user
       redirect_to current_user 
@@ -59,7 +60,16 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
-
+    debugger
+=begin
+    majors_attributes = params[:user][:majors_attributes] 
+    if majors_attributes
+      majors_attributes.each do |m|
+        major = Major.find( m[1]["major_ids"])
+        @user.majors << major
+      end
+    end
+=end
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
