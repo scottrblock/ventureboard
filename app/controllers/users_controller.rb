@@ -61,15 +61,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     debugger
-=begin
-    majors_attributes = params[:user][:majors_attributes] 
-    if majors_attributes
-      majors_attributes.each do |m|
-        major = Major.find( m[1]["major_ids"])
-        @user.majors << major
-      end
-    end
-=end
+
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to @user, notice: 'User was successfully updated.' }

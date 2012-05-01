@@ -24,15 +24,6 @@
 #
 
 class User < ActiveRecord::Base
-=begin
-  def initialize(attributes=nil)
-    super
-    #we override the initialize method and ensure we always have 
-    #a major instance created. This makes sure we don't get any
-    #nil reference errors in our forms
-    self.build_majors unless self.majors
-  end
-=end
   attr_accessible :email, :first_name, :last_name, :password, 
 		  :majors_attributes, :major_ids, :major_id, :majors,
 		  :minors_attributes, :minor_ids, :minor_id, :minors

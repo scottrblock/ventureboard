@@ -1,8 +1,8 @@
 <fieldset>
   <%= f.label :name, "Major:" %>
   <%= collection_select( :user, :major_ids, Major.all, :id, :name, {:prompt => 'Choose a major...'}, 
-								   {:name => 'user[major_ids][]'}) %>
+								   {:name => 'user[major_ids][]', class: 'dynamic-select'}) %>
 
   <%= f.hidden_field :_destroy, :class => 'remove-major-box' %>
-  <%= link_to "Remove", '#', class: "remove_fields" %>
+  <%= link_to "Remove", '#', class: 'remove-fields light-red-button' %>
 </fieldset>
