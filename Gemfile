@@ -27,6 +27,9 @@ gem 'paperclip', '~> 2.7'
 gem 'annotate', '~> 2.4.1.beta'
 gem 'heroku'
 gem 'ruby-debug19'
+gem 'acts-as-taggable-on', '~> 2.2.2'
+
+
 
 group :production do
   gem "rmagick", "2.12.0", :require => 'RMagick'
