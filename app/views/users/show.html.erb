@@ -4,25 +4,38 @@
 <% if current_user == @user %>
   <%= link_to 'Edit Profile', edit_user_path(current_user) %>
 <% end %>
-<p>
-  <h4>Email:</h4>
-  <%= @user.email %>
-</p>
-
-<p>
-  <h4>First name:</h4>
-  <%= @user.first_name %>
-</p>
-
-<p>
-  <h4>Last name:</h4>
-  <%= @user.last_name %>
-</p>
 
 <p>
   <h4>Full name:</h4>
   <%= @user.full_name %>
 </p>
 
+<p>
+  <h4>Major(s):</h4>
+  <% for m in @user.majors %>
+    <p><%= m.name %></p>
+  <% end %>
+</p>
 
-<%= @user.majors %>
+<p>
+  <h4>Minor(s):</h4>
+  <% for m in @user.minors %>
+    <p><%= m.name %></p>
+  <% end %>
+</p>
+
+<p>
+  <h4>Skills:</h4>
+  <% for s in @user.skill_list %>
+    <p><%= s %></p>
+  <% end %>
+</p>
+
+<p>
+  <h4>Interests:</h4>
+  <% for i in @user.interest_list %>
+    <p><%= i %></p>
+  <% end %>
+</p>
+
+ 

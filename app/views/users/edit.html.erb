@@ -14,12 +14,7 @@
       </ul>
     </div>
   <% end %>
- 
-  <%= render 'major_fields' %>
-
-  <%= render 'minor_fields' %>
-  
- <div class="field">
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </div>  
@@ -31,10 +26,14 @@
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name %>
   </div>
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
+  <%= render 'major_fields', f:f %>
+  
+  <%= render 'minor_fields', f:f %>
+
+  <%= render 'skill_fields', f:f %>
+
+  <%= render 'interest_fields', f:f %>
+  
   <div class="actions">
     <%= f.submit "Update Profile" , :class => 'green-button' %>
   </div>

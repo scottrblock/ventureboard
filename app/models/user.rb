@@ -26,18 +26,18 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :first_name, :last_name, :password, 
 		  :majors_attributes, :major_ids, :major_id, :majors,
-		  :minors_attributes, :minor_ids, :minor_id, :minors
+		  :minors_attributes, :minor_ids, :minor_id, :minors,
+		  :skill_list, :interest_list
   
   acts_as_authentic do |c|
     c.login_field :email
     c.require_password_confirmation = false 
   end
+  
+  acts_as_taggable
+  acts_as_taggable_on :skills, :interests
 
   # Many-to-many relationships.
-  has_and_belongs_to_many :interests
-
-  has_and_belongs_to_many :skills
-
   has_and_belongs_to_many :majors
   accepts_nested_attributes_for :majors, allow_destroy: true 
 
