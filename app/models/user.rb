@@ -71,8 +71,9 @@ class User < ActiveRecord::Base
 
   validates :password,  :presence   => true,
             :confirmation   => true,
-            :length     => { :within => 6..20 }
-
+            :length     => { :within => 6..20 },
+	    :on => :create
+	
   def full_name
     "#{first_name} #{last_name}"
   end
