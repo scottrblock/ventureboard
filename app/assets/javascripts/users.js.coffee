@@ -1,20 +1,39 @@
 jQuery ->
-  if !$('.field-add-major').prev().is('fieldset')
-   time = new Date().getTime() 
-   regexp = new RegExp($(this).data('id'), 'g')
-   $('.field-add-major').before($('.add-fields').data('fields'))
+  $('#user_major_ids').parent().after('<ul id="chosen-majors"></ul>');
   
-  $('.add-fields').addClass('blue-button');
-  $('.remove-fields').addClass('light-red-button');
- 
-	
-  $('form').on 'click', '.remove-fields', (event) ->
-    $(this).prev('input[type=hidden]').val('1')
-    $(this).closest('fieldset').hide()
-    event.preventDefault()
-
-  $('form').on 'click', '.add-fields', (event) ->
-    time = new Date().getTime() 
-    regexp = new RegExp($(this).data('id'), 'g')
-    $(this).before($(this).data('fields').replace(regexp, time))
-    event.preventDefault()
+  $('#user_major_ids option').each ->
+    if($(this).is(':checked'))
+       $('#chosen-majors').append('<li>' + $(this).text() + '</li>')
+  
+  $('#user_major_ids').multiSelect(
+    selectAll: false
+    noneSelected: "Choose Major(s):"
+    oneOrMoreSelected: "Choose Major(s):"
+    (el) ->
+      if(el.is(':checked'))
+        $('#chosen-majors').append('<li>' + el.parent().text() + '</li>')
+      else
+        $('#chosen-majors li').each ->
+          if($(this).html() == el.parent().text())
+            $(this).remove()      
+  ) 
+  
+  $('#user_minor_ids').parent().after('<ul id="chosen-minors"></ul>');
+  
+  $('#user_minor_ids option').each ->
+    if($(this).is(':checked'))
+       $('#chosen-minors').append('<li>' + $(this).text() + '</li>')
+  
+  $('#user_minor_ids').multiSelect(
+    selectAll: false
+    noneSelected: "Choose Minor(s):"
+    oneOrMoreSelected: "Choose Minor(s):"
+    (el) ->
+      if(el.is(':checked'))
+        $('#chosen-minors').append('<li>' + el.parent().text() + '</li>')
+      else
+        $('#chosen-minors li').each ->
+          if($(this).html() == el.parent().text())
+            $(this).remove()      
+  ) 
+  
