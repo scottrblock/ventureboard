@@ -15,15 +15,9 @@
     </div>
   <% end %>
  
-  <%= f.fields_for :majors do |builder| %>
-        <%= render 'major_fields', f: builder  %>
-  <% end %>
-  <%= link_to_add_fields "Add Major", f, :majors %>
+  <%= render 'major_fields' %>
 
-  <%= f.fields_for :minors do |builder| %>
-        <%= render 'minor_fields', f: builder   %>
-  <% end %>
-  <%= link_to_add_fields "Add Minor", f, :minors %>
+  <%= render 'minor_fields' %>
   
  <div class="field">
     <%= f.label :email %><br />

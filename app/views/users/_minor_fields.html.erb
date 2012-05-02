@@ -1,8 +1,6 @@
 <fieldset>
-  <%= f.label :name, "Minor:" %>
   <%= collection_select( :user, :minor_ids, Minor.all, :id, :name, {:prompt => 'Choose a minor...'}, 
-								   {:name => 'user[minor_ids][]', class: 'dynamic-select'}) %>
-
-  <%= f.hidden_field :_destroy, :class => 'remove-minor-box' %>
-  <%= link_to "Remove", '#', class: 'remove-fields light-red-button' %>
+								   {:name => 'user[minor_ids][]', 
+								    class: 'dynamic-select',
+								    :multiple => true }) %>
 </fieldset>
