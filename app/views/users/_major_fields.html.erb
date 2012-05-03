@@ -1,5 +1,5 @@
 <fieldset>
   <%= f.label 'Major(s)' %> 
-  <%= collection_select( :user, :major_ids, Major.all, :id, :name, {:prompt => 'Choose a major...'}, 
+  <%= f.collection_select(:major_ids, Major.all, :id, :name, {:prompt => 'Choose a major...'}, 
 								   {:multiple => true }) %>
 </fieldset>

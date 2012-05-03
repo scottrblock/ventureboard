@@ -1,6 +1,6 @@
 <fieldset>
   <%= f.label 'Minor(s)' %> 
-  <%= collection_select( :user, :minor_ids, Minor.all, :id, :name, {:prompt => 'Choose a minor...'}, 
+  <%= f.collection_select(:minor_ids, Minor.all, :id, :name, {:prompt => 'Choose a minor...'}, 
 								   {:name => 'user[minor_ids][]', 
 								    class: 'dynamic-select',
 								    :multiple => true }) %>
