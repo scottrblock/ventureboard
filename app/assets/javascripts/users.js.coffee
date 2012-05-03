@@ -11,8 +11,10 @@ jQuery ->
     oneOrMoreSelected: "Choose Major(s):"
     (el) ->
       if(el.is(':checked'))
+        $('#user_major_ids option[value="'+ el.val() + '"]').attr('selected', true);
         $('#chosen-majors').append('<li>' + el.parent().text() + '</li>')
       else
+        $('#user_major_ids option[value="'+ el.val() + '"]').attr('selected', false);
         $('#chosen-majors li').each ->
           if($(this).html() == el.parent().text())
             $(this).remove()      
@@ -31,7 +33,9 @@ jQuery ->
     (el) ->
       if(el.is(':checked'))
         $('#chosen-minors').append('<li>' + el.parent().text() + '</li>')
+        $('#user_minor_ids option[value="'+ el.val() + '"]').attr('selected', true);
       else
+        $('#user_minor_ids option[value="'+ el.val() + '"]').attr('selected', false);
         $('#chosen-minors li').each ->
           if($(this).html() == el.parent().text())
             $(this).remove()      

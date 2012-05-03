@@ -452,10 +452,11 @@ if(jQuery) (function($){
 				});
 				
 				// Eliminate the original form element
-				$(select).remove();
+				$(select).hide();
 				
 				// Add the id that was on the original select element to the new input
-				multiSelect.attr("id", $(select).attr("id"));
+                console.log(multiSelect);
+				multiSelect.attr("id", $(select).attr("id") + "-new");
 				
 				// Build the dropdown options
 				buildOptions.call(multiSelect, options);

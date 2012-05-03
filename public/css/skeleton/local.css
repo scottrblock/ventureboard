@@ -221,8 +221,8 @@ a.multiSelect.active {background-image: url(/../../images/dropdown.blue.active.p
 .multiSelectOptions LABEL.selectAll {border-bottom: dotted 1px #CCC;}
 .multiSelectOptions LABEL.hover {background-color: #3399ff;color: white;}
 
-#user_major_ids:hover{background: url(/../../images/dropdown.blue.active.png)  no-repeat right #eee;}
-#user_minor_ids:hover{background: url(/../../images/dropdown.blue.active.png)  no-repeat right #eee;}
+#user_major_ids-new:hover{background: url(/../../images/dropdown.blue.active.png)  no-repeat right #eee;}
+#user_minor_ids-new:hover{background: url(/../../images/dropdown.blue.active.png)  no-repeat right #eee;}
 
 #chosen-majors, #chosen-minors{margin: 0 0 20px 20px;list-style-type:circle; position: relative; top: -20px}
 #chosen-majors li, #chosen-minors li{margin-bottom: 0;}
