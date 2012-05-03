@@ -1,0 +1,217 @@
+/*
+* Skeleton V1.1
+* Copyright 2011, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 8/17/2011
+*/
+
+/*------------------------------------*\
+	TOC
+\*------------------------------------*/
+/*
+	#Sassy
+	#Site Styles
+	#Page Styles
+	#Media Queries
+*/
+
+/*-------------------------------------*\
+	Let's get #Sassy
+\*-------------------------------------*/
+
+$action-color: #9dce2c;
+$function-color: #79bbff;
+$alert-color: #b22727;
+
+$action-color-light: lighten( $action-color, 10% );
+$action-color-lighter: lighten( $action-color, 20% );
+$action-color-dark: darken( $action-color, 10% );
+$action-color-darker: darken( $action-color, 20% );
+
+$function-color-light: lighten( $function-color, 10% );
+$function-color-lighter: lighten( $function-color, 20% );
+$function-color-dark: darken( $function-color, 10% );
+$function-color-darker: darken( $function-color, 20% );
+
+$alert-color-light: lighten( $alert-color, 10% );
+$alert-color-lighter: lighten( $alert-color, 20% );
+$alert-color-dark: darken( $alert-color, 10% );
+$alert-color-darker: darken( $alert-color, 20% );
+
+@mixin button($color: $function-color, $strength: bold) {
+	-moz-box-shadow:inset 0px 1px 0px 0px lighten($color, 20%);
+	-webkit-box-shadow:inset 0px 1px 0px 0px lighten($color, 20%);
+	box-shadow:inset 0px 1px 0px 0px lighten($color, 20%);
+	background: gradient( linear, left top, left bottom, color-stop(0.05, $color), color-stop(1, darken($color, 20%)) );
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, $color), color-stop(1, darken($color, 20%)) );
+	background:-moz-linear-gradient( center top, $color 5%, darken($color, 20%));
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='$color', endColorstr='darken($color, 20%)');
+	background-color: $color;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid darken($color, 15%);
+	display:inline-block;
+	color:#ffffff !important;
+	text-decoration:none;
+	text-shadow:1px 1px 0px darken($color, 20%);
+	
+	@if $strength == bold {
+		font-size:15px;
+		font-weight:bold;
+		padding:6px 24px;
+	}
+	
+	@if $strength == normal {
+		font-size:13px;
+		font-weight:normal;
+		padding:3px 12px;
+	}
+	
+	&:hover {
+	   background: gradient( linear, left top, left bottom, color-stop(0.05, $color), color-stop(1, darken($color, 10%)) );
+		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, $color), color-stop(1, darken($color, 10%)) );
+		background:-moz-linear-gradient( center top, $color 5%, darken($color, 10%) 100% );
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='$color', endColorstr='darken($color, 10%)');
+		background-color: darken($color, 10%);
+	}
+	&:active { 
+		position:relative;
+		top:1px;
+	}
+	
+}
+
+
+/*------------------------------------*\
+	#Site Styles
+\*------------------------------------*/
+
+::selection {
+	background: #F5B8B8; /* Safari */
+	}
+::-moz-selection {
+	background: #F5B8B8; /* Firefox */
+}
+
+select{margin: 10px 0;}
+fieldset{margin: 20px 0;}
+
+div .action-button, div a.action-button, div input.action-button {
+	@include button($action-color, bold);
+}
+
+div .function-button, div a.function-button, div input.function-button {
+	@include button($function-color, bold);
+}
+
+div .alert-button, div a.alert-button, div input.alert-button {
+	@include button($alert-color, bold);
+}
+
+div .action-button-chill, div a.action-button-chill, div input.action-button-chill {
+	@include button($action-color, normal);
+}
+
+div .function-button-chill, div a.function-button-chill, div input.function-button-chill {
+	@include button($function-color, normal);
+}
+
+div .alert-button-chill, div a.alert-button-chill, div input.alert-button-chill {
+	@include button($alert-color, normal);
+}
+
+
+
+header{background: #eee;}
+header h1{padding: 0 10px;}
+h1 .red{color: #FC2626;}
+
+.grey-box{background: #fff;  -moz-opacity:.85; filter:alpha(opacity=85); opacity:.85; padding: 10px;}
+
+.sub_menu li:last-child a{border-bottom: 0px solid #fff;}
+.sf-menu li li{background: #ccc;}
+.sf-menu li{background: #ccc;}
+
+
+/*------------------------------------*\
+	#Page Styles
+\*------------------------------------*/
+
+/*User Edit*/
+a.multiSelect {
+	background: #FFF url(dropdown.blue.png) right center no-repeat;
+	border: solid 1px #BBB;
+	padding-right: 20px;
+	position: relative;
+	cursor: default;
+	text-decoration: none;
+	color: black;
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: top;
+}
+
+a.multiSelect:link, a.multiSelect:visited, a.multiSelect:hover, a.multiSelect:active {
+	color: black;
+	text-decoration: none;
+}
+
+a.multiSelect span{
+	margin: 1px 0px 1px 3px;
+	overflow: hidden;
+	display: -moz-inline-stack;
+	display: inline-block;
+	white-space: nowrap;
+}
+
+a.multiSelect.hover {background-image: url(dropdown.blue.hover.png);}
+a.multiSelect.active, 
+a.multiSelect.focus {border: inset 1px #000;}
+a.multiSelect.active {background-image: url(dropdown.blue.active.png);}
+
+.multiSelectOptions {
+	margin-top: -1px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	border: solid 1px #B2B2B2;
+	background: #FFF;
+	width: 400px;
+}
+
+.multiSelectOptions LABEL {padding: 0px 2px;display: block;white-space: nowrap;}
+.multiSelectOptions LABEL.optGroup{font-weight: bold;}
+.multiSelectOptions .optGroupContainer LABEL{padding-left: 10px;}
+.multiSelectOptions.optGroupHasCheckboxes .optGroupContainer LABEL{padding-left: 18px;}
+.multiSelectOptions input{vertical-align: middle;}
+.multiSelectOptions LABEL.checked{background-color: #dce5f8;}
+.multiSelectOptions LABEL.selectAll {border-bottom: dotted 1px #CCC;}
+.multiSelectOptions LABEL.hover {background-color: #3399ff;color: white;}
+
+#user_major_ids-new:hover{background: url(dropdown.blue.active.png)  no-repeat right #eee;}
+#user_minor_ids-new:hover{background: url(dropdown.blue.active.png)  no-repeat right #eee;}
+
+#chosen-majors, #chosen-minors{margin: 0 0 20px 20px;list-style-type:circle; position: relative; top: -20px}
+#chosen-majors li, #chosen-minors li{margin-bottom: 0;}
+
+/*------------------------------------*\
+	#Media Queries
+\*------------------------------------*/
+
+	/* Smaller than standard 960 (devices and browsers) */
+	@media only screen and (max-width: 959px) {}
+
+	/* Tablet Portrait size to standard 960 (devices and browsers) */
+	@media only screen and (min-width: 768px) and (max-width: 959px) {}
+
+	/* All Mobile Sizes (devices and browser) */
+	@media only screen and (max-width: 767px) {}
+
+	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+	@media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+	@media only screen and (max-width: 479px) {}
+
