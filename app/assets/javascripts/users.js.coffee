@@ -39,5 +39,4 @@ jQuery ->
         $('#chosen-minors li').each ->
           if($(this).html() == el.parent().text())
             $(this).remove()      
-  ) 
-  
+  )
