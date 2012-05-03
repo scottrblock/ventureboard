@@ -36,7 +36,9 @@ class UsersController < ApplicationController
   def edit
     debugger
     @user = User.find(params[:id])
-    if current_user != @user
+    if !current_user
+      redirect_to root_url 
+    else if current_user != @user
       redirect_to current_user 
     end  
   end
