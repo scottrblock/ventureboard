@@ -84,6 +84,18 @@ $alert-color-darker: darken( $alert-color, 20% );
 	
 }
 
+@mixin alert($color: $function-color) {
+	padding: 10px 20px;
+	margin-bottom: 10px;
+	color: $color;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	background-color: desaturate(lighten($color, 30%), 50%);
+	border: 1px solid desaturate(lighten($color, 20%), 30%);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
 
 /*------------------------------------*\
 	#Site Styles
@@ -123,6 +135,13 @@ div .alert-button-chill, div a.alert-button-chill, div input.alert-button-chill 
 	@include button($alert-color, normal);
 }
 
+div .alert-error{
+	@include alert($alert-color);
+}
+
+div .alert-success{
+	@include alert(saturate($action-color-darker, 30%));
+}
 
 
 header{background: #eee;}
