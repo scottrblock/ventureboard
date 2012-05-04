@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if !current_user
       redirect_to root_url 
-    else if current_user != @user
+    elsif current_user != @user
       redirect_to current_user 
     end  
   end

@@ -40,3 +40,9 @@ jQuery ->
           if($(this).html() == el.parent().text())
             $(this).remove()      
   )
+
+  $('#user_skill_list').tagsInput(
+    console.log $('#user_skill_list').val()
+    $('#user_skill_list_tagsinput span span').each -> 
+      console.log 'test' 
+  )
