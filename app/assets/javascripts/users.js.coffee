@@ -43,6 +43,6 @@ jQuery ->
 
   $('#user_skill_list').tagsInput(
     console.log $('#user_skill_list').val()
-    $('#user_skill_list_tagsinput span span').each -> 
-      console.log 'test' 
+    $('#user_skill_list_tagsinput').each (span) -> 
+      console.log '$(span).child().text()'; 
   )
