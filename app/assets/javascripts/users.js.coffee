@@ -41,8 +41,5 @@ jQuery ->
             $(this).remove()      
   )
 
-  $('#user_skill_list').tagsInput(
-    console.log $('#user_skill_list').val()
-    $('#user_skill_list_tagsinput').each (span) -> 
-      console.log '$(span).child().text()'; 
-  )
+  $('#user_skill_list').tagsInput()
+  $('#user_interest_list').tagsInput()

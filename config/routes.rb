@@ -23,7 +23,6 @@ Ventureboard::Application.routes.draw do
 
   match 'signup', :controller => 'users', :action => 'new', :as => 'signup'  
 
-  
   match 'login', :controller => 'user_sessions', :action => 'new', :as => 'login'
   match 'logout', :controller => 'user_sessions', :action => 'destroy', :as => 'logout'
   

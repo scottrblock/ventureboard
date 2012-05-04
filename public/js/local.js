@@ -32,7 +32,7 @@ function ajaxifyLoginForm() {
           url: $(this).attr('action'),
           data: $(this).serialize(),
           dataType: 'html',
-          success: function(data) { window.location = '/account'; },
+          success: function(data) { window.location = '/'; },
           error: function(xhr) {
             if (xhr.status == '406') {
               $('#errorExplanation').remove();
