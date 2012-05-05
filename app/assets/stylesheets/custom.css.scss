@@ -109,7 +109,6 @@ $alert-color-darker: darken( $alert-color, 20% );
 }
 
 select{margin: 10px 0;}
-fieldset{margin: 20px 0;}
 
 div .action-button, div a.action-button, div input.action-button {
 	@include button($action-color, bold);
@@ -160,6 +159,25 @@ h1 .red{color: #FC2626;}
 \*------------------------------------*/
 
 /*User Edit*/
+#custom-tabs{float: left; width: 240px; background: #eee;}
+#custom-tabs li{margin-bottom: 0;}
+#custom-tabs li a{border-bottom: 0; display: block; padding: 10px;}
+#custom-tabs li a.active{
+	background: #fff;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border: 1px solid #666;
+	border-right: 0;
+	color: #666;
+}
+#custom-tabs li a:hover{background: #ddd; color: #333;}
+#custom-tabs li a.active:hover{background: #fff; color: #000;}
+#tab-content{float: left; margin-left: 20px;}
+
 a.multiSelect {
 	background: #FFF url(dropdown.blue.png) right center no-repeat;
 	border: solid 1px #BBB;
@@ -214,6 +232,8 @@ a.multiSelect.active {background-image: url(dropdown.blue.active.png);}
 
 #chosen-majors, #chosen-minors{margin: 0 0 20px 20px;list-style-type:circle; position: relative; top: -20px}
 #chosen-majors li, #chosen-minors li{margin-bottom: 0;}
+
+div.tagsinput span.tag a:hover{background: $alert-color-lighter; color: $alert-color-darker;}
 
 /*------------------------------------*\
 	#Media Queries

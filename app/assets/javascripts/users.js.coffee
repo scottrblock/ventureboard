@@ -41,5 +41,9 @@ jQuery ->
             $(this).remove()      
   )
 
-  $('#user_skill_list').tagsInput()
-  $('#user_interest_list').tagsInput()
+  $('#user_skill_list').tagsInput('defaultText':'add a skill')
+  $('#user_interest_list').tagsInput('defaultText':'add an interest', 'minInputWidth': 100)
+
+  $('#tab-container').easytabs(tabs : '#custom-tabs li');
+
+  
