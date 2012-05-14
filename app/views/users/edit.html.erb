@@ -41,6 +41,9 @@
 		<%= render 'minor_fields', f:f %>
 	  </div>
 	  <div id="personal-information">
+		<%= f.label 'Primary Role' %>	
+		<%= f.collection_select(:user_type_id, UserType.all, :id, :name, {:prompt => "Choose a role..."}) %>
+
 		<%= render 'skill_fields', f:f %>
 
 		<%= render 'interest_fields', f:f %>

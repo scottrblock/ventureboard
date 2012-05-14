@@ -25,6 +25,11 @@
 </p>
 
 <p>
+  <h4>Primary Role</h4>
+    <p><%= @user.user_type.name %></p>
+</p>
+
+<p>
   <h4>Skills:</h4>
   <% for s in @user.skill_list %>
     <p><%= s %></p>

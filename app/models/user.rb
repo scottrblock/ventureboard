@@ -27,7 +27,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :first_name, :last_name, :password, 
 		  :majors_attributes, :major_ids, :major_id, :majors,
 		  :minors_attributes, :minor_ids, :minor_id, :minors,
-		  :skill_list, :interest_list
+		  :skill_list, :interest_list,
+		  :user_type_id
   
   acts_as_authentic do |c|
     c.login_field :email

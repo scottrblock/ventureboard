@@ -7,8 +7,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 user_types = []
-["Designer", "Developer", "Editor", "Writer", "Illustrator", 
- "Photographer", "Videographer", "Marketer", "Advisor"].each do |type|
+["Technical", "Business", "Creative", "Advisor"].each do |type|
   user_types << UserType.create(:name => type)
 end
 
