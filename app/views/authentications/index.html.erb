@@ -1,0 +1,19 @@
+<h1>Listing authentications</h1>
+
+<table>
+  <tr>
+    <th>UID</th>
+    <th>Provider</th>
+    <th>User ID</th>
+  </tr>
+
+<% @authentications.each do |auth| %>
+  <tr>
+    <td><%= auth.uid %></td>
+    <td><%= auth.provider%></td>
+    <td><%= auth.user_id %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

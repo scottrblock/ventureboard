@@ -10,37 +10,46 @@
   <%= @user.full_name %>
 </p>
 
-<p>
-  <h4>Major(s):</h4>
-  <% for m in @user.majors %>
-    <p><%= m.name %></p>
-  <% end %>
-</p>
+<% if @user.majors %>
+  <p>
+    <h4>Major(s):</h4>
+    <% for m in @user.majors %>
+      <p><%= m.name %></p>
+    <% end %>
+  </p>
+<% end %>
 
-<p>
-  <h4>Minor(s):</h4>
-  <% for m in @user.minors %>
-    <p><%= m.name %></p>
-  <% end %>
-</p>
+<% if @user.minors %>
+  <p>
+    <h4>Minor(s):</h4>
+    <% for m in @user.minors %>
+      <p><%= m.name %></p>
+    <% end %>
+  </p>
+<% end %>
 
-<p>
-  <h4>Primary Role</h4>
-    <p><%= @user.user_type.name %></p>
-</p>
+<% if @user.user_type %>
+  <p>
+   <h4>Primary Role</h4>
+     <p><%= @user.user_type.name %></p>
+  </p>
+<% end %>
 
-<p>
-  <h4>Skills:</h4>
-  <% for s in @user.skill_list %>
-    <p><%= s %></p>
-  <% end %>
-</p>
+<% if @user.skill_list %>
+  <p>
+   <h4>Skills:</h4>
+   <% for s in @user.skill_list %>
+     <p><%= s %></p>
+   <% end %>
+  </p>
+<% end %>
 
-<p>
-  <h4>Interests:</h4>
-  <% for i in @user.interest_list %>
-    <p><%= i %></p>
-  <% end %>
-</p>
-
+<% if @user.interest_list %>
+  <p>
+   <h4>Interests:</h4>
+   <% for i in @user.interest_list %>
+     <p><%= i %></p>
+   <% end %>
+  </p>
+<% end %>
  

@@ -16,6 +16,10 @@ Ventureboard::Application.routes.draw do
   resources :types
 
   resources :users
+  
+  resources :authentications
+
+  match 'auth/:provider/callback' => 'authentications#create'
 
   resource :user_session
  
