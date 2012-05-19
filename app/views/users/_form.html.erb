@@ -1,3 +1,8 @@
+<div class="social-signup">
+	<h2>Skip the form and sign up with a social account:</h2>
+	<a href="/auth/linkedin" class="zocial linkedin">Sign up with LinkedIn</a>
+</div>
+
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -10,7 +15,7 @@
       </ul>
     </div>
   <% end %>
-
+  
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
@@ -31,5 +36,4 @@
     <%= f.submit "Sign Up" , :class => 'action-button' %>
   </div>
 
-  <a href="/auth/linkedin" style="text-decoration: none;">Sign up with <img alt="LinkedIn_Button" src="images/auth/linked_in_64.png"></a>
 <% end %>
