@@ -56,14 +56,13 @@ class User < ActiveRecord::Base
   # One-to-many relationship.
   belongs_to :user_type
 
-=begin
   has_attached_file :avatar, {
     :styles => { :medium => "50x50#" },
     :storage => Rails.env.production? ? :s3 : :filesystem,
-    :bucket => 'weareumd', #config this too.
-    :s3_credentials => "#{Rails.root}/config/amazon_s3.yml" #have to config this file.
+    :s3_credentials => "#{Rails.root}/config/amazon_s3.yml",
+    :path => "/:style/:id/:filename" 
   }
-=end
+  
   validate do |user|
     if user.new_record?
       user.errors.add(:password, "is required") if user.password.blank?
