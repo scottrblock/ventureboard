@@ -5,13 +5,15 @@
   <%= link_to 'Edit Profile', edit_user_path(current_user) %>
 <% end %>
 
-<p>
-  <h4>Full name:</h4>
-  <%= @user.full_name %>
-</p>
-
+  <div class='user-box clearfix'>
+	<% if @user.avatar %>
+		<%= image_tag @user.avatar(:thumbnail) %>
+	<% end %>
+	<span class='name'><%= @user.full_name %></span>
+  </div>
+ 
 <% if @user.majors %>
-  <p>
+  <p class='clearfix'>
     <h4>Major(s):</h4>
     <% for m in @user.majors %>
       <p><%= m.name %></p>

@@ -28,8 +28,7 @@ class User < ActiveRecord::Base
 		  :majors_attributes, :major_ids, :major_id, :majors,
 		  :minors_attributes, :minor_ids, :minor_id, :minors,
 		  :skill_list, :interest_list,
-		  :user_type_id,
-	          :authentications
+		  :user_type_id, :authentications, :avatar
   
   acts_as_authentic do |c|
     c.ignore_blank_passwords = true #ignore passwords
@@ -57,10 +56,11 @@ class User < ActiveRecord::Base
   belongs_to :user_type
 
   has_attached_file :avatar, {
-    :styles => { :medium => "50x50#" },
+    :styles => { :thumbnail => "50x50#", :medium => "120x120#" },
     :storage => Rails.env.production? ? :s3 : :filesystem,
     :s3_credentials => "#{Rails.root}/config/amazon_s3.yml",
-    :path => "/:style/:id/:filename" 
+    :path => ":rails_root/app/assets/system/avatars/:id/:style/:filename",
+    :url => ":rails_root/app/assets/system/avatars/:id/:style/:filename" 
   }
   
   validate do |user|
@@ -88,6 +88,12 @@ class User < ActiveRecord::Base
             :confirmation   => true,
             :length     => { :within => 6..20 },
 	    :on => :create
+		
+  validate :avatar_size
+  validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png', 'image/gif']
+
+  validates_attachment_size :avatar, :less_than=>700.kilobytes, 
+                    :if => Proc.new { |imports| !imports.avatar_file_name.blank? }
 	
   def full_name
     "#{first_name} #{last_name}"
@@ -111,5 +117,15 @@ class User < ActiveRecord::Base
     #set persistence_token else sessions will not be created
     user.reset_persistence_token!  
     user
+  end
+  
+  def avatar_size
+    temp_file = avatar.queued_for_write[:original] #get the file that is being uploaded
+    if (temp_file) 
+      dimensions = Paperclip::Geometry.from_file(temp_file)
+      if (dimensions.width < 50) || (dimensions.height < 50)
+        errors.add("photo_size", "must be image size 50x50.")
+      end
+    end
   end
 end

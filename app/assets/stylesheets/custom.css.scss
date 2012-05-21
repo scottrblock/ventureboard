@@ -134,12 +134,28 @@ div .alert-button-chill, div a.alert-button-chill, div input.alert-button-chill 
 	@include button($alert-color, normal);
 }
 
+
 div .alert-error{
 	@include alert($alert-color);
 }
 
 div .alert-success{
 	@include alert(saturate($action-color-darker, 30%));
+}
+
+div#error_explanation{
+	@include alert($alert-color);
+}
+
+div#error_explanation h2 {
+	font-weight: bold;
+	padding: 0;
+	font-size: 12px;
+	margin: 0px;
+	margin-bottom: 0px;
+	background-color: transparent;
+	color: 
+	#111;
 }
 
 
@@ -239,6 +255,37 @@ a.multiSelect.active {background-image: url(dropdown.blue.active.png);}
 #chosen-majors li, #chosen-minors li{margin-bottom: 0;}
 
 div.tagsinput span.tag a:hover{background: $alert-color-lighter; color: $alert-color-darker;}
+
+
+/*User Profile*/
+.user-box{
+	-moz-box-shadow:inset 0px 1px 0px 0px lighten(#eee, 20%);
+	-webkit-box-shadow:inset 0px 1px 0px 0px lighten(#eee, 20%);
+	box-shadow:inset 0px 1px 0px 0px lighten(#eee, 20%);
+	background-color: #eee;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid darken(#eee, 15%);
+	display:inline-block;
+	color:#666;
+	text-decoration:none;
+	padding: 10px;
+	display: block;
+	float: left;
+	
+	span{
+		font-size: 16px;
+		float: left;
+		display: block;
+		color: #999;
+	}
+	
+	img{
+		float: left;
+	}
+}
+
 
 /*------------------------------------*\
 	#Media Queries
