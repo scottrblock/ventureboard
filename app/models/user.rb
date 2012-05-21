@@ -62,7 +62,8 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, {
     :styles => { :thumbnail => "50x50#", :medium => "120x120#" },
     :storage => Rails.env.production? ? :s3 : :filesystem,
-    :s3_credentials => "#{Rails.root}/config/amazon_s3.yml"
+    :s3_credentials => "#{Rails.root}/config/amazon_s3.yml",
+    :path => ":attachment/:id/:style.:extension"
   }
   
   validate do |user|
