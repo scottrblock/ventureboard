@@ -21,8 +21,12 @@
 #  last_login_ip       :string(255)
 #  crypted_password    :string(255)
 #  user_type_id        :integer
+#  avatar_file_name    :string(255)
+#  avatar_content_type :string(255)
+#  avatar_file_size    :integer
 #
 
+require 'open-uri'
 class User < ActiveRecord::Base
   attr_accessible :email, :first_name, :last_name, :password, 
 		  :majors_attributes, :major_ids, :major_id, :majors,
@@ -110,8 +114,13 @@ class User < ActiveRecord::Base
   end
 
   def self.create_from_hash(hash)
-    user = User.new(:first_name => hash['info']['first_name'],
-		    :last_name => hash['info']['last_name']) 
+    debugger
+    case hash['provider']
+	when 'linkedin'
+		user = User.new(:first_name => hash['info']['first_name'],
+		    		:last_name => hash['info']['last_name']) 
+   		user.avatar_from_url(hash['info']['image']) 
+    end 
     #create the user without performing validations. This is because most of the fields are not set.
     user.save(:validate => false)  
     #set persistence_token else sessions will not be created
@@ -127,5 +136,9 @@ class User < ActiveRecord::Base
         errors.add("photo_size", "must be image size 50x50.")
       end
     end
+  end
+
+  def avatar_from_url(url)
+    self.avatar = open(url)
   end
 end
