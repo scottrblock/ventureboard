@@ -273,16 +273,21 @@ div.tagsinput span.tag a:hover{background: $alert-color-lighter; color: $alert-c
 	padding: 10px;
 	display: block;
 	float: left;
+	margin-top: 10px;
 	
 	span{
 		font-size: 16px;
 		float: left;
 		display: block;
 		color: #999;
+		font-weight: bold;
+		margin: 15px 0 0 5px;
+
 	}
 	
 	img{
 		float: left;
+		
 	}
 }
 
