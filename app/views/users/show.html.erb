@@ -13,17 +13,27 @@
 	<% end %>
 	<span class='name'><%= @user.full_name %></span>
   </div>
- 
-<% if @user.majors %>
+
+
+<% unless @user.programs.size == 0 %>
   <p class='clearfix'>
-    <h4>Major(s):</h4>
+    <h4>Program(s):</h4>
+    <% for p in @user.programs %>
+      <p><%= p.name %></p>
+    <% end %>
+  </p>
+<% end %>
+ 
+<% unless @user.majors.size == 0 %>
+   <p>
+   <h4>Major(s):</h4>
     <% for m in @user.majors %>
       <p><%= m.name %></p>
     <% end %>
   </p>
 <% end %>
 
-<% if @user.minors %>
+<% unless @user.minors.size == 0 %>
   <p>
     <h4>Minor(s):</h4>
     <% for m in @user.minors %>
@@ -39,7 +49,7 @@
   </p>
 <% end %>
 
-<% if @user.skill_list %>
+<% unless @user.skill_list.size == 0 %>
   <p>
    <h4>Skills:</h4>
    <% for s in @user.skill_list %>
@@ -48,7 +58,7 @@
   </p>
 <% end %>
 
-<% if @user.interest_list %>
+<% unless @user.interest_list.size == 0 %>
   <p>
    <h4>Interests:</h4>
    <% for i in @user.interest_list %>

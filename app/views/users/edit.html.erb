@@ -48,9 +48,15 @@
 	  </div>
 	  <div id="academic-information">
 		<%= f.label 'Programs' %>
-                <%= f.check_box :programs %>
-
-		<%= render 'major_fields', f:f %>
+		<br />
+		<% Program.all.each do |program| %>
+			<%= check_box_tag 'user[program_ids][]', 
+				          program.id, 
+					  @user.programs.include?(program) %>
+			<%= label_tag :program_ids, program.name %>
+	        <% end %>
+		<br />	
+ 	 	<%= render 'major_fields', f:f %>
 	  
 		<%= render 'minor_fields', f:f %>
 	  </div>

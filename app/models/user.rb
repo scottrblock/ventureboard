@@ -31,7 +31,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :first_name, :last_name, :password, 
 		  :majors_attributes, :major_ids, :major_id, :majors,
 		  :minors_attributes, :minor_ids, :minor_id, :minors,
-		  :skill_list, :interest_list, :programs,
+		  :skill_list, :interest_list, 
+		  :programs, :program_ids, :program_id,
 		  :user_type_id, :authentications, :avatar
   
   acts_as_authentic do |c|
@@ -60,7 +61,8 @@ class User < ActiveRecord::Base
 
   has_many :authentications, :dependent => :destroy
 
-  has_many :programs
+  has_many :program_affiliations
+  has_many :programs, :through => :program_affiliations
 
   has_attached_file :avatar, {
     :styles => { :thumbnail => "50x50#", :medium => "120x120#" },
