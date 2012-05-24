@@ -1,9 +1,12 @@
 Ventureboard::Application.routes.draw do
+
   resources :user_types
 
   get "pages/home"
 
   resources :organizations
+
+  resources :programs
 
   resources :minors
 

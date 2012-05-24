@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :first_name, :last_name, :password, 
 		  :majors_attributes, :major_ids, :major_id, :majors,
 		  :minors_attributes, :minor_ids, :minor_id, :minors,
-		  :skill_list, :interest_list,
+		  :skill_list, :interest_list, :programs,
 		  :user_type_id, :authentications, :avatar
   
   acts_as_authentic do |c|
@@ -51,13 +51,16 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :minors, allow_destroy: true
 
   has_and_belongs_to_many :organizations
-  has_many :authentications, :dependent => :destroy
 
   # Groups: Programs, Startups, Teams | ~> Entouragi   
   #  accepts_nested_attributes_for :organizations, allow_destroy: true
 
   # One-to-many relationship.
   belongs_to :user_type
+
+  has_many :authentications, :dependent => :destroy
+
+  has_many :programs
 
   has_attached_file :avatar, {
     :styles => { :thumbnail => "50x50#", :medium => "120x120#" },

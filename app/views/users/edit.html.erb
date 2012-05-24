@@ -47,6 +47,9 @@
 		  </div>
 	  </div>
 	  <div id="academic-information">
+		<%= f.label 'Programs' %>
+                <%= f.check_box :programs %>
+
 		<%= render 'major_fields', f:f %>
 	  
 		<%= render 'minor_fields', f:f %>

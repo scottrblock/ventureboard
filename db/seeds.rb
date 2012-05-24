@@ -11,6 +11,12 @@ user_types = []
   user_types << UserType.create(:name => type)
 end
 
+programs = []
+["Robert H. Smith School of Business", "Computer Science Department", "Hinman CEO's", 
+ "Entrepreneurship and Innovation Program", "College Park Scholars", "University Honors"].each do |p|
+  programs << Program.create(:name => p)
+end
+
 Major.create(:name => "Accounting (Business)")
 Major.create(:name => "Aerospace Engineering")
 Major.create(:name => "African-American Studies")
