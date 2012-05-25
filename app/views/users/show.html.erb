@@ -7,13 +7,6 @@
 	</div>
 <% end %>
 
-  <div class='user-box clearfix'>
-	<% if @user.avatar %>
-		<%= image_tag @user.avatar(:thumbnail) %>
-	<% end %>
-	<span class='name'><%= @user.full_name %></span>
-  </div>
-
 
 <% unless @user.programs.size == 0 %>
   <p class='clearfix'>

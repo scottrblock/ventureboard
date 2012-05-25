@@ -41,6 +41,18 @@ jQuery ->
             $(this).remove()      
   )
 
+  $("input:radio, input:checkbox").uniform();
+  
+  $('.checkbox-label').click ->
+    the_box = $('.checker span input', $(this).parent())
+    console.log(the_box.attr('checked'));
+    if(the_box.attr('checked') == undefined || the_box.attr('checked') == false)
+      the_box.attr('checked', true);
+      $('.checker span', $(this).parent()).addClass('checked');
+    else
+      the_box.attr('checked', false);
+      $('.checker span', $(this).parent()).removeClass('checked');
+  
   $('#user_skill_list').tagsInput('defaultText':'add a skill')
   $('#user_interest_list').tagsInput('defaultText':'add an interest', 'minInputWidth': 100)
 

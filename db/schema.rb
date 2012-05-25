@@ -66,16 +66,16 @@ ActiveRecord::Schema.define(:version => 20120524055527) do
     t.integer "organization_id"
     t.integer "user_id"
   end
-
-  create_table "program_affiliations", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "program_id"
+  
+  create_table "programs", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  create_table "programs", :force => true do |t|
-    t.string   "name"
+  
+  create_table "program_affiliations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "program_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
