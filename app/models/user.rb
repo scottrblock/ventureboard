@@ -119,11 +119,13 @@ class User < ActiveRecord::Base
 
   def self.create_from_hash(hash)
     debugger
+    user = User.new(:first_name => hash['info']['first_name'],
+		    		:last_name => hash['info']['last_name']) 
     case hash['provider']
 	when 'linkedin'
-		user = User.new(:first_name => hash['info']['first_name'],
-		    		:last_name => hash['info']['last_name']) 
-   		user.avatar_from_url(hash['info']['image']) 
+		user.avatar_from_url(hash['info']['image']) 
+	when 'google'
+		user.email = hash['info']['email']	
     end 
     #create the user without performing validations. This is because most of the fields are not set.
     user.save(:validate => false)  
