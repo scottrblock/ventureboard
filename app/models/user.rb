@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
 		  :minors_attributes, :minor_ids, :minor_id, :minors,
 		  :skill_list, :interest_list, 
 		  :programs, :program_ids, :program_id,
-		  :user_type_id, :authentications, :avatar
+		  :user_type, :user_type_id, :authentications, :avatar
   
   acts_as_authentic do |c|
     c.ignore_blank_passwords = true #ignore passwords

@@ -17,6 +17,7 @@ programs = []
   programs << Program.create(:name => p)
 end
 
+majors = []
 Major.create(:name => "Accounting (Business)")
 Major.create(:name => "Aerospace Engineering")
 Major.create(:name => "African-American Studies")
@@ -135,6 +136,9 @@ Major.create(:name => "Pre-Law")
 Major.create(:name => "Pre-Medicine")
 Major.create(:name => "Pre-Physical Therapy")
 Major.create(:name => "Pre-Veterinary Medicine")
+
+majors << Major.all
+
 Minor.create(:name => "Actuarial Mathematics")
 Minor.create(:name => "Agribusiness Economics")
 Minor.create(:name => "Ancient Greek Language and Literature")
@@ -204,3 +208,112 @@ Minor.create(:name => "Technology Entrepreneurship")
 Minor.create(:name => "Planetary Sciences")
 Minor.create(:name => "Survey Methodology")
 Minor.create(:name => "Creative Writing")
+
+
+# 13 Techincal users
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test1@test.com", 
+            :user_type => user_types[0], :majors => Major.where(:id => 38), :password => "test123")
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test2@test.com", 
+            :user_type => user_types[0], :majors => Major.where(:id => 38), :password => "test123")
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test3@test.com", 
+            :user_type => user_types[0], :majors => Major.where(:id => 38), :password => "test123")
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test4@test.com", 
+            :user_type => user_types[0], :majors => Major.where(:id => 38), :password => "test123")
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test5@test.com", 
+            :user_type => user_types[0], :majors => Major.where(:id => 38), :password => "test123")
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test6@test.com", 
+            :user_type => user_types[0], :majors => Major.where(:id => 38), :password => "test123")
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test7@test.com", 
+            :user_type => user_types[0], :majors => Major.where(:id => 38), :password => "test123")
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test8@test.com", 
+            :user_type => user_types[0], :majors => Major.where(:id => 38), :password => "test123")
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test9@test.com", 
+            :user_type => user_types[0], :majors => Major.where(:id => 38), :password => "test123")
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test10@test.com", 
+            :user_type => user_types[0], :majors => Major.where(:id => 38), :password => "test123")
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test11@test.com", 
+            :user_type => user_types[0], :majors => Major.where(:id => 38), :password => "test123")
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test12@test.com", 
+            :user_type => user_types[0], :majors => Major.where(:id => 38), :password => "test123")
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test13@test.com", 
+            :user_type => user_types[0], :majors => Major.where(:id => 38), :password => "test123")
+
+# 13 Business users
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test14@test.com", 
+            :user_type => user_types[1], :majors => Major.where(:id => 1), :password => "test123")
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test15@test.com", 
+            :user_type => user_types[1], :majors => Major.where(:id => 55), :password => "test123")
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test16@test.com", 
+            :user_type => user_types[1], :majors => Major.where(:id => 1), :password => "test123")
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test17@test.com", 
+            :user_type => user_types[1], :majors => Major.where(:id => 55), :password => "test123")
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test18@test.com", 
+            :user_type => user_types[1], :majors => Major.where(:id => 1), :password => "test123")
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test19@test.com", 
+            :user_type => user_types[1], :majors => Major.where(:id => 55), :password => "test123")
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test20@test.com", 
+            :user_type => user_types[1], :majors => Major.where(:id => 1), :password => "test123")
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test21@test.com", 
+            :user_type => user_types[1], :majors => Major.where(:id => 55), :password => "test123")
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test22@test.com", 
+            :user_type => user_types[1], :majors => Major.where(:id => 1), :password => "test123")
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test23@test.com", 
+            :user_type => user_types[1], :majors => Major.where(:id => 55), :password => "test123")
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test24@test.com", 
+            :user_type => user_types[1], :majors => Major.where(:id => 1), :password => "test123")
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test25@test.com", 
+            :user_type => user_types[1], :majors => Major.where(:id => 55), :password => "test123")
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test26@test.com", 
+            :user_type => user_types[1], :majors => Major.where(:id => 1), :password => "test123")
+
+# 13 Creative users
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test27@test.com", 
+             :user_type => user_types[2], :majors => Major.where(:id => 1), :password => "test123")
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test28@test.com", 
+             :user_type => user_types[2], :majors => Major.where(:id => 3), :password => "test123")
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test29@test.com", 
+             :user_type => user_types[2], :majors => Major.where(:id => 6), :password => "test123")
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test30@test.com", 
+             :user_type => user_types[2], :majors => Major.where(:id => 9), :password => "test123")
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test31@test.com", 
+             :user_type => user_types[2], :majors => Major.where(:id => 12), :password => "test123")
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test32@test.com", 
+             :user_type => user_types[2], :majors => Major.where(:id => 15), :password => "test123")
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test33@test.com", 
+             :user_type => user_types[2], :majors => Major.where(:id => 18), :password => "test123")
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test34@test.com", 
+             :user_type => user_types[2], :majors => Major.where(:id => 21), :password => "test123")
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test35@test.com", 
+             :user_type => user_types[2], :majors => Major.where(:id => 24), :password => "test123")
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test36@test.com", 
+             :user_type => user_types[2], :majors => Major.where(:id => 27), :password => "test123")
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test37@test.com", 
+             :user_type => user_types[2], :majors => Major.where(:id => 30), :password => "test123")
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test38@test.com", 
+             :user_type => user_types[2], :majors => Major.where(:id => 33), :password => "test123")
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test39@test.com", 
+             :user_type => user_types[2], :majors => Major.where(:id => 36), :password => "test123")
+
+# 11 Advisor users
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test40@test.com", 
+             :user_type => user_types[3], :password => "test123")
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test41@test.com", 
+             :user_type => user_types[3], :password => "test123")
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test42@test.com", 
+             :user_type => user_types[3], :password => "test123")
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test43@test.com", 
+             :user_type => user_types[3], :password => "test123")
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test44@test.com", 
+             :user_type => user_types[3], :password => "test123")
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test45@test.com", 
+             :user_type => user_types[3], :password => "test123")
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test46@test.com", 
+             :user_type => user_types[3], :password => "test123")
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test47@test.com", 
+             :user_type => user_types[3], :password => "test123")
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test48@test.com", 
+             :user_type => user_types[3], :password => "test123")
+User.create!(:first_name => "John", :last_name => "Smith", :email => "test49@test.com", 
+             :user_type => user_types[3], :password => "test123")
+User.create!(:first_name => "Jane", :last_name => "Smith", :email => "test50@test.com", 
+             :user_type => user_types[3], :password => "test123")
