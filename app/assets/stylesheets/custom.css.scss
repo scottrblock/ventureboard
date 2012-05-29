@@ -261,6 +261,10 @@ div.tagsinput span.tag a:hover{background: $alert-color-lighter; color: $alert-c
 .check-row{margin: 5px 0;}
 div.checker input{cursor: pointer;}
 
+/*DC*/
+#dcWidgetLink{border: 0px solid #fff;}
+#dcWidgetLink:hover{border: 0px solid #fff;}
+
 /*User Profile*/
 .user-box{
 	-moz-box-shadow:inset 0px 1px 0px 0px lighten(#eee, 20%);
