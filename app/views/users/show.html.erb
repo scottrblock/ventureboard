@@ -2,11 +2,14 @@
 <h2><%= @user.possessive_name %> Profile</h2>
 
 <% if current_user == @user %>
-	<div>
+	<p>
 		<%= link_to 'Edit Profile', edit_user_path(current_user) %>
-	</div>
+	</p>
 <% end %>
 
+<p>
+	<%= gravatar_for @user %>
+</p>
 
 <% unless @user.programs.size == 0 %>
   <p class='clearfix'>
