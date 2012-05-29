@@ -1,5 +1,9 @@
 Ventureboard::Application.routes.draw do
 
+  resources :teams
+
+  resources :startups
+
   resources :user_types
 
   get "pages/home"

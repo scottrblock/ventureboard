@@ -53,16 +53,19 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :organizations
 
-  # Groups: Programs, Startups, Teams | ~> Entouragi   
-  #  accepts_nested_attributes_for :organizations, allow_destroy: true
+  # Programs, Teams | ~> Entouragi   
+  has_many :program_affiliations
+  has_many :programs, :through => :program_affiliations
 
-  # One-to-many relationship.
+  has_many :team_memberships
+  has_many :teams, :through => :team_memberships
+
+  # One-to-many relationships.
   belongs_to :user_type
 
   has_many :authentications, :dependent => :destroy
 
-  has_many :program_affiliations
-  has_many :programs, :through => :program_affiliations
+  has_many :startups
 
   has_attached_file :avatar, {
     :styles => { :thumbnail => "50x50#", :medium => "120x120#" },

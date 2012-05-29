@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120524055527) do
+ActiveRecord::Schema.define(:version => 20120528205434) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -66,16 +66,16 @@ ActiveRecord::Schema.define(:version => 20120524055527) do
     t.integer "organization_id"
     t.integer "user_id"
   end
-  
-  create_table "programs", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-  
+
   create_table "program_affiliations", :force => true do |t|
     t.integer  "user_id"
     t.integer  "program_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "programs", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -101,6 +101,12 @@ ActiveRecord::Schema.define(:version => 20120524055527) do
     t.integer "user_id"
   end
 
+  create_table "startups", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -117,6 +123,20 @@ ActiveRecord::Schema.define(:version => 20120524055527) do
   create_table "tags", :force => true do |t|
     t.string "name"
   end
+
+  create_table "team_memberships", :force => true do |t|
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "leader",     :default => false
+  end
+
+  create_table "teams", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "startup_id"
+  end
+
+  add_index "teams", ["startup_id"], :name => "index_teams_on_startup_id"
 
   create_table "user_types", :force => true do |t|
     t.string   "name"
