@@ -7,59 +7,62 @@
 	</p>
 <% end %>
 
-<p>
-	<%= gravatar_for @user %>
-</p>
+<div class="clearfix">
+	<div class='user-box clearfix'>
+		<%= gravatar_for @user %>
+		<span class='name'><%= @user.full_name %></span>
+ 	</div>
+</div>
+<div class='clearfix'>
+	<% unless @user.programs.size == 0 %>
+	  <div>
+		<h4>Program(s):</h4>
+		<% for p in @user.programs %>
+		  <p><%= p.name %></p>
+		<% end %>
+	  </div>
+	<% end %>
+	 
+	<% unless @user.majors.size == 0 %>
+	   <div>
+	   <h4>Major(s):</h4>
+		<% for m in @user.majors %>
+		  <p><%= m.name %></p>
+		<% end %>
+	  </div>
+	<% end %>
 
-<% unless @user.programs.size == 0 %>
-  <p class='clearfix'>
-    <h4>Program(s):</h4>
-    <% for p in @user.programs %>
-      <p><%= p.name %></p>
-    <% end %>
-  </p>
-<% end %>
- 
-<% unless @user.majors.size == 0 %>
-   <p>
-   <h4>Major(s):</h4>
-    <% for m in @user.majors %>
-      <p><%= m.name %></p>
-    <% end %>
-  </p>
-<% end %>
+	<% unless @user.minors.size == 0 %>
+	  <div>
+		<h4>Minor(s):</h4>
+		<% for m in @user.minors %>
+		  <p><%= m.name %></p>
+		<% end %>
+	  </div>
+	<% end %>
 
-<% unless @user.minors.size == 0 %>
-  <p>
-    <h4>Minor(s):</h4>
-    <% for m in @user.minors %>
-      <p><%= m.name %></p>
-    <% end %>
-  </p>
-<% end %>
+	<% if @user.user_type %>
+	  <div>
+	   <h4>Primary Role</h4>
+		 <p><%= @user.user_type.name %></p>
+	  </div>
+	<% end %>
 
-<% if @user.user_type %>
-  <p>
-   <h4>Primary Role</h4>
-     <p><%= @user.user_type.name %></p>
-  </p>
-<% end %>
+	<% unless @user.skill_list.size == 0 %>
+	  <div>
+	   <h4>Skills:</h4>
+	   <% for s in @user.skill_list %>
+		 <p><%= s %></p>
+	   <% end %>
+	  </div>
+	<% end %>
 
-<% unless @user.skill_list.size == 0 %>
-  <p>
-   <h4>Skills:</h4>
-   <% for s in @user.skill_list %>
-     <p><%= s %></p>
-   <% end %>
-  </p>
-<% end %>
-
-<% unless @user.interest_list.size == 0 %>
-  <p>
-   <h4>Interests:</h4>
-   <% for i in @user.interest_list %>
-     <p><%= i %></p>
-   <% end %>
-  </p>
-<% end %>
- 
+	<% unless @user.interest_list.size == 0 %>
+	  <div>
+	   <h4>Interests:</h4>
+	   <% for i in @user.interest_list %>
+		 <p><%= i %></p>
+	   <% end %>
+	  </div>
+	<% end %>
+</div>

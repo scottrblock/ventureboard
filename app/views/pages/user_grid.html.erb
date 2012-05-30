@@ -1,0 +1,67 @@
+<h2>Build Your Dream Team:</h2>
+<div class="three columns alpha">
+
+	<p>
+	Place holder column for jqueryui filters and searches for users because yea.
+	</p>
+	<p>
+	Selvage bicycle rights letterpress fixie next level street art. Food truck viral retro hella chillwave put a bird on it dreamcatcher, craft beer wayfarers etsy before they sold out raw denim bespoke. Gentrify marfa fap, shoreditch wolf selvage pour-over food truck pinterest yr seitan put a bird on it godard trust fund. 3 wolf moon wes anderson irony, godard mumblecore raw denim wolf hella vice chambray gastropub seitan. Quinoa flexitarian godard synth art party, put a bird on it post-ironic gastropub. Butcher hella twee, letterpress jean shorts keffiyeh banksy brooklyn 8-bit tattooed next level. Farm-to-table hella mustache, lomo quinoa next level PBR flexitarian pork belly freegan DIY artisan.
+	</p>
+	<p>
+	Vinyl swag single-origin coffee aesthetic, sustainable mumblecore vice. Four loko small batch bicycle rights, narwhal godard street art DIY hella fanny pack. Yr farm-to-table banksy carles banh mi truffaut, art party raw denim flexitarian. Skateboard polaroid bespoke flexitarian. Fap typewriter pop-up occupy iphone hoodie, beard next level +1 pork belly wolf echo park gluten-free. Dreamcatcher letterpress vegan chillwave, Austin ethnic sustainable portland gentrify food truck tattooed wes anderson 3 wolf moon. Pour-over retro master cleanse thundercats, 3 wolf moon yr pop-up.
+	</p>
+</div>
+<div class="eleven columns user-grid">
+	<% UserType.all.each do |i| %>
+		<% unless i.name == "Advisor" %>
+			<h3 class='clearfix <%= i.name.downcase%> <% if(i.id == 1) %>first<% end %>'><%= i.name %></h3>
+			<div class="clearfix <%= i.name.downcase%> user-box-wrap">
+			<% get_user_type(i.id).each do |e| %>
+				<div class='user-box'>
+					<%= gravatar_for(e, 48) %>
+					<span><%= e.full_name %></span>
+					<% if(e.majors.length > 1) %>
+						<div class='multiple-majors'>
+							Majoring in:
+								<ul>
+									<% e.majors.each do |m| %>
+										<li><%= m.name %></li>
+								</ul>
+						</div>
+					<% end elsif e.majors.length == 1 %>
+						<div class='single-major'>
+							Majoring in <%= e.majors[0].name %>
+						</div>
+					<% end %>
+					<% if(e.minors.length > 1) %>
+						<div class='multiple-minors'>
+							Minoring in:
+								<ul>
+									<% e.minors.each do |m| %>
+										<li><%= m.name %></li>
+								</ul>
+						</div>
+					<% end elsif e.minors.length == 1 %>
+						<div class='single-minor'>
+							Minoring in <%= e.minors %>
+						</div>
+					<% end %>
+				</div>
+
+			<% end %>
+			</div>
+		<%end%>
+	<%end%>
+	
+</div>
+<div class="two columns omega">
+	<p>
+		Place holder for current groups/startups the current user is in. The UI is trapped in my mind and I suck at sketching, but think buckets, and drag and drop, ala Google Plus circles.
+	</p>
+	<p>
+	Whatever banh mi messenger bag lo-fi next level kale chips. Whatever hoodie forage VHS pitchfork, PBR locavore. Truffaut next level seitan fingerstache cardigan pop-up. Polaroid mustache fixie, typewriter you probably haven't heard of them single-origin coffee wayfarers. Carles chillwave seitan skateboard portland brunch mcsweeney's raw denim, synth mumblecore swag american apparel 3 wolf moon polaroid. Dreamcatcher blog mcsweeney's freegan viral fap messenger bag, trust fund carles sriracha forage brooklyn. Gentrify portland single-origin coffee, tumblr cred messenger bag semiotics.
+	</p>
+	<p>
+Tofu lomo pop-up squid sriracha. High life squid helvetica, raw denim pitchfork viral iphone put a bird on it letterpress chillwave you probably haven't heard of them. Bicycle rights artisan kogi, gentrify direct trade gluten-free wayfarers narwhal keffiyeh mlkshk. Salvia aesthetic raw denim williamsburg echo park. Synth craft beer keytar, cliche sustainable Austin trust fund stumptown cray vinyl etsy lo-fi dreamcatcher. Next level brooklyn fixie, keffiyeh retro gentrify ethical 3 wolf moon vice salvia craft beer photo booth cardigan wolf. Mlkshk shoreditch PBR chambray keffiyeh cliche pork belly bespoke.
+	</p>
+</div>

@@ -96,7 +96,16 @@ $alert-color-darker: darken( $alert-color, 20% );
 	border-radius: 4px;
 }
 
-
+@mixin subtle-background() {
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top, #ffffff 0%, #eeeeee 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#eeeeee)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffffff 0%,#eeeeee 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffffff 0%,#eeeeee 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ffffff 0%,#eeeeee 100%); /* IE10+ */
+	background: linear-gradient(top, #ffffff 0%,#eeeeee 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
+}
 /*------------------------------------*\
 	#Site Styles
 \*------------------------------------*/
@@ -239,7 +248,7 @@ a.multiSelect.active {background-image: url(dropdown.blue.active.png);}
 	width: 400px;
 }
 
-.multiSelectOptions LABEL {padding: 0px 2px;display: block;white-space: nowrap;}
+.multiSelectOptions LABEL {padding: 0px 2px;display: block;white-space: nowrap; clear: both}
 .multiSelectOptions LABEL.optGroup{font-weight: bold;}
 .multiSelectOptions .optGroupContainer LABEL{padding-left: 10px;}
 .multiSelectOptions.optGroupHasCheckboxes .optGroupContainer LABEL{padding-left: 18px;}
@@ -267,10 +276,10 @@ div.checker input{cursor: pointer;}
 
 /*User Profile*/
 .user-box{
+	@include subtle-background();
 	-moz-box-shadow:inset 0px 1px 0px 0px lighten(#eee, 20%);
 	-webkit-box-shadow:inset 0px 1px 0px 0px lighten(#eee, 20%);
 	box-shadow:inset 0px 1px 0px 0px lighten(#eee, 20%);
-	background-color: #eee;
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
 	border-radius:6px;
@@ -281,7 +290,7 @@ div.checker input{cursor: pointer;}
 	padding: 10px;
 	display: block;
 	float: left;
-	margin-top: 10px;
+	margin: 10px;
 	
 	span{
 		font-size: 16px;
@@ -289,16 +298,36 @@ div.checker input{cursor: pointer;}
 		display: block;
 		color: #999;
 		font-weight: bold;
-		margin: 15px 0 0 5px;
+		margin: 32px 0 0 5px
 
 	}
 	
 	img{
 		float: left;
-		
+		-moz-border-radius:6px;
+		-webkit-border-radius:6px;
+		border-radius:6px;
 	}
 }
 
+/*grid*/
+$technical-color: #8b8bdb;
+$business-color: #6dce6f;
+$creative-color: #d07ef6;
+
+.user-grid .user-box{width: 180px; margin: 5px 5px 5px 0; border: 2px solid #000;}
+.user-grid .user-box span{margin-top: 0;}
+.user-box-wrap{float: left;}
+
+.technical .user-box{border-color: $technical-color;}
+.business .user-box{border-color: $business-color;}
+.creative .user-box{border-color: $creative-color;}
+
+.user-grid h3{float: left; padding: 4px; margin-top: 20px;}
+.user-grid h3.first{margin-top: 0;}
+.user-grid h3.technical{background:  darken($technical-color, 10%); color: lighten($technical-color, 10%)}
+.user-grid h3.business{background:  darken($business-color, 10%); color: lighten($business-color, 10%)}
+.user-grid h3.creative{background:  darken($creative-color, 10%); color: lighten($creative-color, 10%)}
 
 /*------------------------------------*\
 	#Media Queries

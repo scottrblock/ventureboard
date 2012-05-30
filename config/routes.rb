@@ -36,6 +36,7 @@ Ventureboard::Application.routes.draw do
 
   match 'login', :controller => 'user_sessions', :action => 'new', :as => 'login'
   match 'logout', :controller => 'user_sessions', :action => 'destroy', :as => 'logout'
+  match 'grid' => 'pages#user_grid'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

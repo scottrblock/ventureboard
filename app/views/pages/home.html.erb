@@ -10,6 +10,16 @@
 		<a href="/login" class="action-button" rel="facebox">Login</a>
 		<a href="/signup" class="action-button">Sign Up</a>
 </section>
+<section class="sixteen columns new-users">
+	<h3>Latest Members:</h3>
+	<% get_latest_users(10).each do |e| %>
+		<div class='user-box clearfix'>
+			<%= gravatar_for e %>
+			<span class='name'><%= e.full_name %></span>
+		</div>
+		
+	<% end %>
+</section>
 <% else %>
 <section class="sixteen columns">
 	<h2> Welcome to the network. </h2>
