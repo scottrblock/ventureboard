@@ -19,7 +19,17 @@
         });
         return false;
     });
- 
+    
+    //grid stuff, too much to write in cs for now
+    var currentTallest = 0;
+    $('.user-box-wrap').each(function(e){
+        currentTallest = 0;
+        $('.user-box', $(this)).each(function(f){
+            if ($(this).outerHeight() > currentTallest) { currentTallest = $(this).outerHeight(); }
+        });
+        $(this).children().css('min-height', currentTallest + 'px');
+        
+    });
  });
  
  
