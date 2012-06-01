@@ -21,6 +21,7 @@
     });
     
     //grid stuff, too much to write in cs for now
+    /*jk terrible idea to make all boxes the same size, jmasonry ftw
     var currentTallest = 0;
     $('.user-box-wrap').each(function(e){
         currentTallest = 0;
@@ -29,6 +30,27 @@
         });
         $(this).children().css('min-height', currentTallest + 'px');
         
+    });
+    */
+    $('.box-right').each(function(e){
+        //view-tooltip
+        var name_width = $('.box-name', $(this)).outerWidth() + 20;
+        var button_width = $('.action-button-chill', $(this)).outerWidth() + 20;
+        
+        var resize_to = 0;
+        if(name_width > button_width){
+            resize_to = name_width
+        }
+        else{
+            resize_to = button_width
+        }
+        
+        $(this).css('width',  + resize_to +  'px');
+    });
+    
+    $('.user-box-wrap').masonry({
+        itemSelector : '.user-box',
+        isFitWidth: false
     });
  });
  

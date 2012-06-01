@@ -14,41 +14,85 @@
 <div class="eleven columns user-grid">
 	<% UserType.all.each do |i| %>
 		<% unless i.name == "Advisor" %>
-			<h3 class='clearfix <%= i.name.downcase%> <% if(i.id == 1) %>first<% end %>'><%= i.name %></h3>
+			<h3 class='<%= i.name.downcase%> <% if(i.id == 1) %>first<% end %>'><%= i.getQuirkyName %></h3>
+			
 			<div class="clearfix <%= i.name.downcase%> user-box-wrap">
-			<% get_user_type(i.id).each do |e| %>
-				<div class='user-box'>
-					<%= gravatar_for(e, 48) %>
-					<span><%= e.full_name %></span>
-					<% if(e.majors.length > 1) %>
-						<div class='multiple-majors'>
-							Majoring in:
-								<ul>
-									<% e.majors.each do |m| %>
-										<li><%= m.name %></li>
-								</ul>
+				<% get_user_type(i.id).reverse.each do |e| %>
+					
+					<div class='user-box'>
+						<div class='top-box clearfix'>
+							<div class='box-left'>
+								<%= gravatar_for(e, 48) %>
+							</div>
+							<div class='box-right'>
+								<div class='box-name clearfix'>
+									<%= link_to e.full_name, user_path(e) %>
+								</div>
+								<% if(e.majors.length > 0) %>
+									<div class='box-majors clearfix'>
+										<ul>
+											<% e.majors.each do |m| %>
+												<li><%= m.name %></li>
+											<% end %>
+										</ul>
+									</div>
+								<% end %>
+								
+								<% if(e.minors.length > 0) %>
+									<div class='box-minors'>
+										<ul>
+											<% e.minors.each do |m| %>
+												<li><%= m.name %></li>
+											<% end %>
+										</ul>
+									</div>
+								<% end %>
+								
+								<% if(e.programs.length > 0) %>
+									<div class='box-programs'>
+											<ul>
+												<% e.programs.each do |m| %>
+													<li><%= m.name %></li>
+												<% end %>
+											</ul>
+									</div>
+								<% end %>
+							</div>
 						</div>
-					<% end elsif e.majors.length == 1 %>
-						<div class='single-major'>
-							Majoring in <%= e.majors[0].name %>
+						<div class='view-tooltip'>View More Info</div>
+						<div class='action-button-chill add-to-group'>Add to Group</div>
+					</div>
+					<div class='user-tooltip'>
+					
+						<div class='user-skills'>
+							<% if(e.skills.length > 0) %>
+								<h4>Skills:</h4>
+								<span>
+									<% if(e.skills.length > 1) %>
+										<%= e.skills.join(",") %>
+									<% else %>
+										<%= e.skills[0] %>
+									<% end %>
+								</span>
+							<% end %>
 						</div>
-					<% end %>
-					<% if(e.minors.length > 1) %>
-						<div class='multiple-minors'>
-							Minoring in:
-								<ul>
-									<% e.minors.each do |m| %>
-										<li><%= m.name %></li>
-								</ul>
+						
+						<div class='user-interests'>
+							<% if(e.interests.length > 0) %>
+								<h4>Interests:</h4>
+								<span>
+									<% if(e.interests.length > 1) %>
+										<%= e.interests.join(",") %>
+									<% else %>
+										<%= e.interests[0] %>
+									<% end %>
+								</span>
+							<% end %>
 						</div>
-					<% end elsif e.minors.length == 1 %>
-						<div class='single-minor'>
-							Minoring in <%= e.minors %>
-						</div>
-					<% end %>
-				</div>
+						
+					</div>
 
-			<% end %>
+				<% end %>
 			</div>
 		<%end%>
 	<%end%>

@@ -117,6 +117,8 @@ $alert-color-darker: darken( $alert-color, 20% );
 	background: #F5B8B8; /* Firefox */
 }
 
+a:active{position: relative; top: 1px;}
+
 select{margin: 10px 0;}
 
 div .action-button, div a.action-button, div input.action-button {
@@ -137,6 +139,10 @@ div .action-button-chill, div a.action-button-chill, div input.action-button-chi
 
 div .function-button-chill, div a.function-button-chill, div input.function-button-chill {
 	@include button($function-color, normal);
+}
+
+div .dull-button-chill, div a.dull-button-chill, div input.dull-button-chill {
+	@include button(#eee, normal);
 }
 
 div .alert-button-chill, div a.alert-button-chill, div input.alert-button-chill {
@@ -315,19 +321,98 @@ $technical-color: #8b8bdb;
 $business-color: #6dce6f;
 $creative-color: #d07ef6;
 
-.user-grid .user-box{width: 180px; margin: 5px 5px 5px 0; border: 2px solid #000;}
+.user-grid .user-box{
+	margin: 5px; border: 2px solid #000; float: left;
+}
 .user-grid .user-box span{margin-top: 0;}
-.user-box-wrap{float: left;}
+.user-box-wrap{float: none;}
 
-.technical .user-box{border-color: $technical-color;}
-.business .user-box{border-color: $business-color;}
-.creative .user-box{border-color: $creative-color;}
 
-.user-grid h3{float: left; padding: 4px; margin-top: 20px;}
+@mixin gird-box-shadow($color){
+	-webkit-box-shadow: 3px 3px 0px $color;
+	-moz-box-shadow:    3px 3px 0px $color;
+	box-shadow:         3px 3px 0px $color;
+}
+
+.technical .user-box{border-color: $technical-color; @include gird-box-shadow(darken($technical-color, 10%))}
+.business .user-box{border-color: $business-color; @include gird-box-shadow(darken($business-color, 10%))}
+.creative .user-box{border-color: $creative-color; @include gird-box-shadow(darken($creative-color, 10%))}
+
+.user-grid h3{padding: 4px; margin-top: 20px;}
+.user-grid h3 span{cursor: default;}
 .user-grid h3.first{margin-top: 0;}
 .user-grid h3.technical{background:  darken($technical-color, 10%); color: lighten($technical-color, 10%)}
 .user-grid h3.business{background:  darken($business-color, 10%); color: lighten($business-color, 10%)}
 .user-grid h3.creative{background:  darken($creative-color, 10%); color: lighten($creative-color, 10%)}
+.user-tooltip{display: none;}
+.view-tooltip{
+	clear: both;
+	border: 1px solid #fff;
+	text-align: center;
+	width: 120px;
+	padding: 4px 6px;
+	margin: 10px auto 5px auto;
+	cursor: pointer;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(238,238,238,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(238,238,238,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(238,238,238,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(238,238,238,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(238,238,238,1) 100%); /* IE10+ */
+	background: linear-gradient(top, rgba(255,255,255,0) 0%,rgba(238,238,238,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
+}
+
+.view-tooltip:hover{background: #fff;}
+
+.technical .view-tooltip{border-color: desaturate(lighten($technical-color, 10%), 20%); color: desaturate($technical-color, 30%)}
+.business .view-tooltip{border-color: desaturate(lighten($business-color, 10%), 20%); color: desaturate($business-color, 30%)}
+.creative .view-tooltip{border-color: desaturate(lighten($creative-color, 10%), 20%); color: desaturate($creative-color, 30%)}
+
+.user-box .action-button-chill.add-to-group{
+	cursor: pointer;
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+	width: 110px;
+}
+
+.box-left{
+	margin: -15px 15px 15px -15px;
+	float: left;
+}
+.box-right{
+	float: left;
+}
+
+.box-name{
+	float: left;
+	a{font-size: 14px; color: #666}
+	a:hover{background: transparent; color: #666; border-bottom: 1px solid #000;}
+}
+.box-majors{
+	clear: both;
+	margin: 4px 0;
+	line-height: 15px;
+	ul{margin-bottom: 4px; color: #000}
+	ul li{margin-bottom: 0;}
+}
+.box-minors{
+	margin: 4px 0 6px 0;
+	line-height: 15px;
+	ul{margin-bottom: 4px; color: #999}
+	ul li{margin-bottom: 0;}
+	border-bottom: 1px solid #aaa;
+}
+.box-programs{
+	margin: 4px 0 6px 0;
+	line-height: 15px;
+	ul{margin-bottom: 4px; color: #666; list-style-type: circle}
+	ul li{margin-bottom: 0;}
+}
+.top-box{float: left;}
 
 /*------------------------------------*\
 	#Media Queries
