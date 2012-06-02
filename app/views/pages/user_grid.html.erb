@@ -59,37 +59,37 @@
 								<% end %>
 							</div>
 						</div>
-						<div class='view-tooltip'>View More Info</div>
+						<% if(e.skills.length > 0 || e.interests.length > 0) %>
+							<div class='view-tooltip'>View More Info</div>
+						<% end %>
 						<div class='action-button-chill add-to-group'>Add to Group</div>
 					</div>
 					<div class='user-tooltip'>
-					
-						<div class='user-skills'>
-							<% if(e.skills.length > 0) %>
+						<% if(e.skills.length > 0) %>
+							<div class='user-skills'>	
 								<h4>Skills:</h4>
-								<span>
+								<span class='one-tool'>
 									<% if(e.skills.length > 1) %>
-										<%= e.skills.join(",") %>
+										<%= e.skills.join(', ') %>
 									<% else %>
 										<%= e.skills[0] %>
 									<% end %>
 								</span>
-							<% end %>
-						</div>
-						
-						<div class='user-interests'>
-							<% if(e.interests.length > 0) %>
+							</div>
+						<% end %>
+
+						<% if(e.interests.length > 0) %>
+							<div class='user-interests'>
 								<h4>Interests:</h4>
-								<span>
+								<span class='two-tool'>
 									<% if(e.interests.length > 1) %>
-										<%= e.interests.join(",") %>
+										<%= e.interests.join(', ') %>
 									<% else %>
 										<%= e.interests[0] %>
 									<% end %>
 								</span>
-							<% end %>
-						</div>
-						
+							</div>
+						<% end %>
 					</div>
 
 				<% end %>

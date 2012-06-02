@@ -298,15 +298,7 @@ div.checker input{cursor: pointer;}
 	float: left;
 	margin: 10px;
 	
-	span{
-		font-size: 16px;
-		float: left;
-		display: block;
-		color: #999;
-		font-weight: bold;
-		margin: 32px 0 0 5px
-
-	}
+	
 	
 	img{
 		float: left;
@@ -377,6 +369,7 @@ $creative-color: #d07ef6;
 	margin: 0 auto;
 	display: block;
 	width: 110px;
+	clear: both;
 }
 
 .box-left{
@@ -412,8 +405,50 @@ $creative-color: #d07ef6;
 	ul{margin-bottom: 4px; color: #666; list-style-type: circle}
 	ul li{margin-bottom: 0;}
 }
-.top-box{float: left;}
 
+.tooltip{
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: 3;
+   display: none;
+}
+            
+.top-box{float: left;}
+.view-tooltip .tooltip {
+  background: #eee;
+  text-align: left;
+  padding: 6px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee',GradientType=0 );
+  -moz-box-shadow: inset 0px 1px 0px 0px white;
+  -webkit-box-shadow: inset 0px 1px 0px 0px white;
+  box-shadow: inset 0px 1px 0px 0px white;
+  -webkit-border-top-right-radius: 06px;
+  -webkit-border-bottom-right-radius: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  -moz-border-radius-topright: 06px;
+  -moz-border-radius-bottomright: 6px;
+  -moz-border-radius-bottomleft: 6px;
+  border-top-right-radius: 06px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border: 1px solid #c8c8c8;
+  border-color: #8b8bdb;
+  -webkit-box-shadow: 3px 3px 0px #6464cf;
+  -moz-box-shadow: 3px 3px 0px #6464cf;
+  box-shadow: 3px 3px 0px #6464cf;
+  border-top: 0px solid;
+  margin-left: -2px;
+  border-left-width: 2px;
+  
+	h4{
+		font-size: 16px;
+		color:  #666;
+		line-height: 10px;
+	}
+	
+	.one-tool{margin-bottom: 10px; display: block;}
+}
 /*------------------------------------*\
 	#Media Queries
 \*------------------------------------*/

@@ -52,6 +52,18 @@
         itemSelector : '.user-box',
         isFitWidth: false
     });
+    
+    $('.user-box .view-tooltip').each(function(e){
+        $(this).simpletip({
+            content: $(this).parent().next().html(),
+            fixed: true,
+            position: [0, $(this).parent().outerHeight() - $(this).outerHeight() + 15]
+        });
+        $('.tooltip', $(this)).css('width', $(this).parent().width() + 9 + 'px');
+    });
+
+    
+    
  });
  
  
