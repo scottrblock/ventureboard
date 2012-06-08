@@ -40,6 +40,7 @@ class User < ActiveRecord::Base
     c.ignore_blank_passwords = true #ignore passwords
     c.validate_password_field = false #ignore validations for passwords
     c.require_password_confirmation = false
+    c.logged_in_timeout = 30.minutes # default is 30.minutes
   end 
   
   acts_as_taggable
