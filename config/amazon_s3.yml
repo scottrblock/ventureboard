@@ -1,9 +1,9 @@
 development:
 	bucket:	bucket-ventureboard-pro
-	access_key_id: AKIAIYMYYMWOAXUME5YA
-	secret_access_key: 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
+	access_key_id: <AKIAIYMYYMWOAXUME5YA>
+	secret_access_key: <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>
 
 production: 
 	bucket: bucket-ventureboard-pro
-	access_key_id: AKIAIYMYYMWOAXUME5YA
-	secret_access_key: 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
+	access_key_id: <AKIAIYMYYMWOAXUME5YA>
+	secret_access_key: <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>
