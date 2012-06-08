@@ -27,7 +27,6 @@
 #
 
 require 'open-uri'
-require 'yaml'
 class User < ActiveRecord::Base
   attr_accessible :id, :email, :first_name, :last_name, :password, 
 		  :majors_attributes, :major_ids, :major_id, :majors,
@@ -73,7 +72,7 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, {
     :styles => { :thumbnail => "50x50#", :medium => "120x120#" },
     :storage => Rails.env.production? ? :s3 : :filesystem,
-    :s3_credentials => YAML::load File.read("#{Rails.root}/config/amazon_s3.yml"),
+    :s3_credentials => "#{Rails.root}/config/amazon_s3.yml",
     :path => ":attachment/:id/:style.:extension"
   }
   
