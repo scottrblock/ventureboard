@@ -25,6 +25,9 @@ $action-color: #9dce2c;
 $function-color: #79bbff;
 $alert-color: #b22727;
 
+$link-color: #3C53AF;
+$link-color-bright: #2E54EA;
+
 $action-color-light: lighten( $action-color, 10% );
 $action-color-lighter: lighten( $action-color, 20% );
 $action-color-dark: darken( $action-color, 10% );
@@ -184,6 +187,8 @@ h1 .red{color: #FC2626;}
 .sf-menu li li{background: #ccc;}
 .sf-menu li{background: #ccc;}
 
+#facebox .close:link{border-bottom: 0px solid #fff;}
+#facebox .close:hover{border-bottom: 0px solid #fff;}
 
 /*------------------------------------*\
 	#Page Styles
@@ -308,27 +313,64 @@ div.checker input{cursor: pointer;}
 	}
 }
 
+/*Grid */
+.user-grid-box{
+	
+	
+	display:block;
+	color:#666;
+	text-decoration:none;
+	padding: 0;
+	float: left;
+	margin: 14px;
+	overflow: hidden;
+	
+	img{
+		float: left;
+		border:6px solid #000;
+	}
+	
+	.overlay{
+		position: absolute;
+		width: 200px;
+		padding: 10px;
+		height: 200px;
+		margin-top: 6px;
+		margin-left: 6px;
+		opacity: 0.95;
+		color: #eee;
+		display: none;
+		
+		.full-name{font-size: 24px; line-height: 24px;}
+		.buttons{position: absolute; bottom: 0;}
+		.buttons a{margin: 10px 0;}
+	}
+}
+.user-grid-box.first-col{margin-left: 0;}
+.user-grid-box.last-col{margin-right: 0;}
 /*grid*/
 $technical-color: #8b8bdb;
 $business-color: #6dce6f;
 $creative-color: #d07ef6;
 
-.user-grid .user-box{
-	margin: 5px; border: 2px solid #000; float: left;
-}
-.user-grid .user-box span{margin-top: 0;}
+.user-grid .user-grid-box span{margin-top: 0;}
 .user-box-wrap{float: none;}
 
 
 @mixin gird-box-shadow($color){
-	-webkit-box-shadow: 3px 3px 0px $color;
-	-moz-box-shadow:    3px 3px 0px $color;
-	box-shadow:         3px 3px 0px $color;
+	-webkit-box-shadow: 4px 4px 0px $color;
+	-moz-box-shadow:    4px 4px 0px $color;
+	box-shadow:         4px 4px 0px $color;
 }
 
-.technical .user-box{border-color: $technical-color; @include gird-box-shadow(darken($technical-color, 10%))}
-.business .user-box{border-color: $business-color; @include gird-box-shadow(darken($business-color, 10%))}
-.creative .user-box{border-color: $creative-color; @include gird-box-shadow(darken($creative-color, 10%))}
+.technical .user-grid-box img{border-color: $technical-color; @include gird-box-shadow(darken($technical-color, 10%))}
+.business .user-grid-box img{border-color: $business-color; @include gird-box-shadow(darken($business-color, 10%))}
+.creative .user-grid-box img{border-color: $creative-color; @include gird-box-shadow(darken($creative-color, 10%))}
+
+.technical .user-grid-box .overlay{background-color: darken($technical-color, 10%); }
+.business .user-grid-box .overlay{background-color: darken($business-color, 10%); }
+.creative .user-grid-box .overlay{background-color:darken($creative-color, 10%); }
+
 
 .user-grid h3{padding: 4px; margin-top: 20px;}
 .user-grid h3 span{cursor: default;}
@@ -336,32 +378,6 @@ $creative-color: #d07ef6;
 .user-grid h3.technical{background:  darken($technical-color, 10%); color: lighten($technical-color, 10%)}
 .user-grid h3.business{background:  darken($business-color, 10%); color: lighten($business-color, 10%)}
 .user-grid h3.creative{background:  darken($creative-color, 10%); color: lighten($creative-color, 10%)}
-.user-tooltip{display: none;}
-.view-tooltip{
-	clear: both;
-	border: 1px solid #fff;
-	text-align: center;
-	width: 120px;
-	padding: 4px 6px;
-	margin: 10px auto 5px auto;
-	cursor: pointer;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(238,238,238,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(238,238,238,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(238,238,238,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(238,238,238,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(238,238,238,1) 100%); /* IE10+ */
-	background: linear-gradient(top, rgba(255,255,255,0) 0%,rgba(238,238,238,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
-}
-
-.view-tooltip:hover{background: #fff;}
-
-.technical .view-tooltip{border-color: desaturate(lighten($technical-color, 10%), 20%); color: desaturate($technical-color, 30%)}
-.business .view-tooltip{border-color: desaturate(lighten($business-color, 10%), 20%); color: desaturate($business-color, 30%)}
-.creative .view-tooltip{border-color: desaturate(lighten($creative-color, 10%), 20%); color: desaturate($creative-color, 30%)}
 
 .user-box .action-button-chill.add-to-group{
 	cursor: pointer;
@@ -371,6 +387,8 @@ $creative-color: #d07ef6;
 	width: 110px;
 	clear: both;
 }
+
+.more-info{display: none;}
 
 .box-left{
 	margin: -15px 15px 15px -15px;
@@ -382,8 +400,9 @@ $creative-color: #d07ef6;
 
 .box-name{
 	float: left;
-	a{font-size: 14px; color: #666}
-	a:hover{background: transparent; color: #666; border-bottom: 1px solid #000;}
+	
+	a, a:link, a:visited{font-size: 14px; color: $link-color; border-bottom: 0px solid #000; font-weight: bold;}
+	a:hover{background: transparent; color: $link-color-bright; border-bottom: 0px solid #000;}
 }
 .box-majors{
 	clear: both;

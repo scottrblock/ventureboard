@@ -3,16 +3,15 @@
     
     $.facebox.settings.loadingImage = '/js/facebox/loading.gif';
     $.facebox.settings.closeImage = '/js/facebox/closelabel.png';
-    $.facebox.settings.opacity = 0.75
+    $.facebox.settings.opacity = 0.75;
     $('a[rel*=facebox]').facebox();
     
-    $('a[rel*=facebox]').click(function(){
+      $('.home-login').click(function(){
         var me = this;
         $.facebox(function(){
             $.get(me.href,
                 null,
                 function(data){
-                    $.facebox(data);
                     ajaxifyLoginForm(); // Here is the line we need to add
                 },
             'html');
@@ -21,47 +20,15 @@
     });
     
     //grid stuff, too much to write in cs for now
-    /*jk terrible idea to make all boxes the same size, jmasonry ftw
-    var currentTallest = 0;
-    $('.user-box-wrap').each(function(e){
-        currentTallest = 0;
-        $('.user-box', $(this)).each(function(f){
-            if ($(this).outerHeight() > currentTallest) { currentTallest = $(this).outerHeight(); }
-        });
-        $(this).children().css('min-height', currentTallest + 'px');
-        
-    });
-    */
-    $('.box-right').each(function(e){
-        //view-tooltip
-        var name_width = $('.box-name', $(this)).outerWidth() + 20;
-        var button_width = $('.action-button-chill', $(this)).outerWidth() + 20;
-        
-        var resize_to = 0;
-        if(name_width > button_width){
-            resize_to = name_width
-        }
-        else{
-            resize_to = button_width
-        }
-        
-        $(this).css('width',  + resize_to +  'px');
+    $('.user-grid .user-grid-box').mouseenter(function(e){
+        $('.overlay', $(this)).fadeIn('fast');
     });
     
-    $('.user-box-wrap').masonry({
-        itemSelector : '.user-box',
-        isFitWidth: false
+    $('.user-grid .user-grid-box').mouseleave(function(e){
+        $('.overlay', $(this)).fadeOut('fast');
     });
     
-    $('.user-box .view-tooltip').each(function(e){
-        $(this).simpletip({
-            content: $(this).parent().next().html(),
-            fixed: true,
-            position: [0, $(this).parent().outerHeight() - $(this).outerHeight() + 15]
-        });
-        $('.tooltip', $(this)).css('width', $(this).parent().width() + 9 + 'px');
-    });
-
+    
     
     
  });
