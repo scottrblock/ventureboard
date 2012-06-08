@@ -7,6 +7,9 @@
 	<p>
 	Selvage bicycle rights letterpress fixie next level street art. Food truck viral retro hella chillwave put a bird on it dreamcatcher, craft beer wayfarers etsy before they sold out raw denim bespoke. Gentrify marfa fap, shoreditch wolf selvage pour-over food truck pinterest yr seitan put a bird on it godard trust fund. 3 wolf moon wes anderson irony, godard mumblecore raw denim wolf hella vice chambray gastropub seitan. Quinoa flexitarian godard synth art party, put a bird on it post-ironic gastropub. Butcher hella twee, letterpress jean shorts keffiyeh banksy brooklyn 8-bit tattooed next level. Farm-to-table hella mustache, lomo quinoa next level PBR flexitarian pork belly freegan DIY artisan.
 	</p>
+	<p>
+	Vinyl swag single-origin coffee aesthetic, sustainable mumblecore vice. Four loko small batch bicycle rights, narwhal godard street art DIY hella fanny pack. Yr farm-to-table banksy carles banh mi truffaut, art party raw denim flexitarian. Skateboard polaroid bespoke flexitarian. Fap typewriter pop-up occupy iphone hoodie, beard next level +1 pork belly wolf echo park gluten-free. Dreamcatcher letterpress vegan chillwave, Austin ethnic sustainable portland gentrify food truck tattooed wes anderson 3 wolf moon. Pour-over retro master cleanse thundercats, 3 wolf moon yr pop-up.
+	</p>
 </div>
 <div class="thirteen columns alpha user-grid">
 	<% UserType.all.each do |i| %>
@@ -14,18 +17,14 @@
 			<h3 class='<%= i.name.downcase%> <% if(i.id == 1) %>first<% end %>'><%= i.getQuirkyName %></h3>
 			
 			<div class="clearfix <%= i.name.downcase%> user-box-wrap">
-				<% get_user_type(i.id).reverse.each_with_index do |e, i| %>
-					<div class='user-grid-box <% if i % 3 == 0 %>first-col<% end %> <% if i % 3 == 2 %>last-col<% end %>'>
-						<%= gravatar_for(e, 220) %>
-						<div class='overlay'>
-							<div class='full-name'>
-								<%= e.full_name %>
+				<% get_user_type(i.id).reverse.each do |e| %>
+					
+					<div class='user-box'>
+						<div class='top-box clearfix'>
+							<div class='box-left'>
+								<%= gravatar_for(e, 48) %>
 							</div>
-							<div class='buttons'>
-								<a href='#more-<%= e.id %>' class='function-button-chill' rel='facebox'><i class='icon-info-sign'></i> More Info</a>
-								<a href='#' class='action-button-chill'><i class='icon-plus-sign'></i> Add to Startup</a>
-							</div>
-							<div id='more-<%=e.id %>' class='more-info'>
+							<div class='box-right'>
 								<div class='box-name clearfix'>
 									<%= link_to e.full_name, user_path(e) %>
 								</div>
@@ -58,7 +57,14 @@
 											</ul>
 									</div>
 								<% end %>
-								
+							</div>
+						</div>
+						<% if(e.skills.length > 0 || e.interests.length > 0) %>
+							<div class='view-tooltip'>View More Info</div>
+						<% end %>
+						<div class='action-button-chill add-to-group'>Add to Group</div>
+					</div>
+					<div class='user-tooltip'>
 						<% if(e.skills.length > 0) %>
 							<div class='user-skills'>	
 								<h4>Skills:</h4>
@@ -84,9 +90,6 @@
 								</span>
 							</div>
 						<% end %>
-								
-							</div>
-						</div>
 					</div>
 
 				<% end %>
