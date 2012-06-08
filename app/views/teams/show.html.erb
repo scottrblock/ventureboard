@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
-
-
+<p>
+  <h2>Team Members </h2>
+  <% for user in @team.users %>
+      <p><%= user.full_name %></p>
+  <% end %>
+</p>
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>

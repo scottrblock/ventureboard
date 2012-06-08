@@ -6,10 +6,17 @@
 </p>
 
 <p>
+  <b> Owner: </b>
+  <% if @startup.user %>
+      <p><%= @startup.user.full_name %></p>     
+  <% end %>
+</p>
+
+<p>
   <b> Team: </b>
   <% if @startup.team %>
-    <% for user in @startup.team %>
-      <p><%= user.name %></p>     
+    <% for user in @startup.team.users %>
+      <p><%= user.full_name %></p>     
     <% end %>
   <% end %>
 </p>

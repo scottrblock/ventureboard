@@ -24,7 +24,10 @@ gem 'jquery-rails'
 gem 'authlogic', :git => 'https://github.com/kreetitech/authlogic.git'
 gem 'aws-sdk', '~> 1.3.4'
 gem 'paperclip', '~> 2.7'
+
 gem 'annotate', '~> 2.4.1.beta'
+gem 'railroady'
+
 gem 'heroku'
 gem 'eventmachine', '1.0.0.beta.3'
 gem 'thin'

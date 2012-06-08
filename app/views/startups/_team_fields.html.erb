@@ -1,0 +1,7 @@
+<fieldset>
+	<%= f.fields_for :team do |t| %>    
+		<%= t.label 'Team Members' %> 
+		<%= t.collection_select(:user_ids, User.all, :id, :full_name, {}, {:multiple => true }) %> 
+	<% end %>						    
+</fieldset>
+

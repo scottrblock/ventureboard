@@ -19,7 +19,6 @@ class Authentication < ActiveRecord::Base
 	validates_uniqueness_of :uid, :scope => :provider
 
 	def self.find_from_hash(hash)
-          debugger
           uid = hash['uid']
 	  provider = hash['provider']
 

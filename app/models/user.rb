@@ -28,12 +28,13 @@
 
 require 'open-uri'
 class User < ActiveRecord::Base
-  attr_accessible :email, :first_name, :last_name, :password, 
+  attr_accessible :id, :email, :first_name, :last_name, :password, 
 		  :majors_attributes, :major_ids, :major_id, :majors,
 		  :minors_attributes, :minor_ids, :minor_id, :minors,
 		  :skill_list, :interest_list, 
 		  :programs, :program_ids, :program_id,
-		  :user_type, :user_type_id, :authentications, :avatar
+		  :user_type, :user_type_id, :authentications, :avatar,
+		  :teams_attributes, :team_ids, :teams, :team_memberships
   
   acts_as_authentic do |c|
     c.ignore_blank_passwords = true #ignore passwords
@@ -65,7 +66,7 @@ class User < ActiveRecord::Base
 
   has_many :authentications, :dependent => :destroy
 
-  has_many :startups
+  has_many :startups, :inverse_of => :user
 
   has_attached_file :avatar, {
     :styles => { :thumbnail => "50x50#", :medium => "120x120#" },
@@ -121,7 +122,6 @@ class User < ActiveRecord::Base
   end
 
   def self.create_from_hash(hash)
-    debugger
     user = User.new(:first_name => hash['info']['first_name'],
 		    		:last_name => hash['info']['last_name']) 
     case hash['provider']
