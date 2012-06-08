@@ -27,7 +27,9 @@
 							</div>
 							<div id='more-<%=e.id %>' class='more-info'>
 								<div class='box-name clearfix'>
-									<%= link_to e.full_name, user_path(e) %>
+									<%= link_to user_path(e) do %>
+										<%=e.full_name%> <i class='icon-circle-arrow-right'></i>
+									<% end %>
 								</div>
 								<% if(e.majors.length > 0) %>
 									<div class='box-majors clearfix'>
