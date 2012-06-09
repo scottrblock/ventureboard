@@ -1,17 +1,44 @@
 <h2>Build Your Dream Team:</h2>
-<div class="sixteen columns">
+<div class="sixteen columns" id="grid-filters">
+	<div class="one-third column alpha">
+		<h4>Filter by Type:</h4>
+		<div id="filter-type">
+			<% UserType.all.each do |i| %>
+				<% unless i.name == "Advisor" %>
+					<input type="checkbox" class="filter-type-input" id="<%=i.name.downcase%>" /><label for="<%=i.name.downcase%>"><%=i.name%></label>
+				<%end%>
+			<%end%>
+		</div>
 
-	<p>
-	Place holder column for jqueryui filters and searches for users because yea.
-	</p>
-	<p>
-	Selvage bicycle rights letterpress fixie next level street art. Food truck viral retro hella chillwave put a bird on it dreamcatcher, craft beer wayfarers etsy before they sold out raw denim bespoke. Gentrify marfa fap, shoreditch wolf selvage pour-over food truck pinterest yr seitan put a bird on it godard trust fund. 3 wolf moon wes anderson irony, godard mumblecore raw denim wolf hella vice chambray gastropub seitan. Quinoa flexitarian godard synth art party, put a bird on it post-ironic gastropub. Butcher hella twee, letterpress jean shorts keffiyeh banksy brooklyn 8-bit tattooed next level. Farm-to-table hella mustache, lomo quinoa next level PBR flexitarian pork belly freegan DIY artisan.
-	</p>
+	</div>
+	<div class="two-thirds column omega">
+		<h4>Filter by Program:</h4>
+		<div id="filter-program">
+			<% Program.all.each do |i| %>
+				<input type="checkbox" class="filter-type-input" id="program-<%=i%>" /><label for="program-<%=i%>"><%=i.name.to_s%></label>
+			<%end%>
+		</div>
+	</div>
+	<div class="one-third column alpha second-filter-row">
+		<h4>Search by Name:</h4>
+		<input type="text" name="filter-first-name" id="filter-first-name" title="First Name...">
+		<input type="text" name="filter-last-name" id="filter-last-name" title="Last Name...">
+	</div>
+	<div class="one-third column second-filter-row">
+		<h4>Filter by Major &amp; Minor:</h3>
+		<input type="hidden" id="filter-major">
+		<input type="hidden" id="filter-minor">
+	</div>
+	<div class="one-third column omega second-filter-row">
+		<h4>Search by Skills &amp; Interests:</h4>
+		<input type="text" name="filter-skills" id="filter-skills" title="Skills...">
+		<input type="text" name="filter-interests" id="filter-interests" title="Interests...">
+	</div>
 </div>
 <div class="thirteen columns alpha user-grid">
 	<% UserType.all.each do |i| %>
 		<% unless i.name == "Advisor" %>
-			<h3 class='<%= i.name.downcase%> <% if(i.id == 1) %>first<% end %>'><%= i.getQuirkyName %></h3>
+			<h3 class='<%= i.name.downcase%>'><%= i.getQuirkyName %></h3>
 			
 			<div class="clearfix <%= i.name.downcase%> user-box-wrap">
 				<% get_user_type(i.id).reverse.each_with_index do |e, i| %>

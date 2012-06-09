@@ -20,6 +20,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'underscore-rails'
 
 gem 'authlogic', :git => 'https://github.com/kreetitech/authlogic.git'
 gem 'aws-sdk', '~> 1.3.4'

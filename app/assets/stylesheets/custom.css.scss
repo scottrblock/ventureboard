@@ -113,14 +113,17 @@ $alert-color-darker: darken( $alert-color, 20% );
 	#Site Styles
 \*------------------------------------*/
 
-::selection {
-	background: #F5B8B8; /* Safari */
-	}
-::-moz-selection {
-	background: #F5B8B8; /* Firefox */
-}
+::selection {background: #F5B8B8; /* Safari */}
+::-moz-selection {background: #F5B8B8; /* Firefox */}
 
 a:active{position: relative; top: 1px;}
+
+span.amp {
+   font-family:Baskerville,"Goudy Old Style","Palatino","Book Antiqua",serif;
+   font-size:110%;
+   font-style:italic;
+}
+
 
 select{margin: 10px 0;}
 
@@ -374,7 +377,7 @@ $creative-color: #d07ef6;
 
 .user-grid h3{padding: 4px; margin-top: 20px;}
 .user-grid h3 span{cursor: default;}
-.user-grid h3.first{margin-top: 0;}
+.user-grid h3:first-child{margin-top: 0;}
 .user-grid h3.technical{background:  darken($technical-color, 10%); color: lighten($technical-color, 10%)}
 .user-grid h3.business{background:  darken($business-color, 10%); color: lighten($business-color, 10%)}
 .user-grid h3.creative{background:  darken($creative-color, 10%); color: lighten($creative-color, 10%)}
@@ -467,6 +470,20 @@ $creative-color: #d07ef6;
 	}
 	
 	.one-tool{margin-bottom: 10px; display: block;}
+}
+
+#grid-filters{
+	margin-bottom: 30px;
+	
+	input.labelHighlight { color: #ccc;	}
+	
+	#filter-first-name, #filter-last-name{font-size: 16px; width: 231px;}
+	.select2-container-multi .select2-search-choice-close{border: 0px solid #fff;}
+	.select2-container-multi .select2-search-choice-close:hover{border: 0px solid #fff; background-color: transparent; color: #333;}
+	.select2-container-multi .select2-search-choice-close:active{top: 4px; position: absolute; left: 3px;}
+	.select2-container-multi .select2-choices .select2-search-choice{margin-top: 5px;}
+	.select2-container{margin-bottom: 16px;}
+	.second-filter-row{margin-top: 15px;}
 }
 /*------------------------------------*\
 	#Media Queries
