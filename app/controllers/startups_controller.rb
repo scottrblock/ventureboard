@@ -14,7 +14,7 @@ class StartupsController < ApplicationController
   # GET /startups/1.json
   def show
     @startup = Startup.find(params[:id])
-
+    @owner = @startup.user
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @startup }
@@ -24,7 +24,6 @@ class StartupsController < ApplicationController
   # GET /startups/new
   # GET /startups/new.json
   def new
-    debugger
     @startup = Startup.new
     @team = @startup.build_team 
     @team.users << current_user 
@@ -42,10 +41,11 @@ class StartupsController < ApplicationController
   # POST /startups
   # POST /startups.json
   def create
-    debugger
     @startup = current_user.startups.new(params[:startup])
     respond_to do |format|
-      if @startup.save!
+      if @startup.save
+	@leader = @startup.team.team_memberships.find( :first, :conditions => { :user_id => current_user.id})
+	@leader.leader = true
         format.html { redirect_to @startup, notice: 'Startup was successfully created.' }
         format.json { render json: @startup, status: :created, location: @startup }
       else

@@ -1,25 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @startup.name %>
-</p>
+<h3>Name:</h3>
+<%= @startup.name %>
 
-<p>
-  <b> Owner: </b>
-  <% if @startup.user %>
-      <p><%= @startup.user.full_name %></p>     
+<h3> Owner: </h3>
+<% if @startup.user %>
+  <p><%= @startup.user.full_name %></p>     
+<% end %>
+
+<h3> Team: </h3>
+<% if @startup.team %>
+  <% for user in @startup.team.users %>
+    <p><%= user.full_name %></p>     
   <% end %>
-</p>
+<% end %>
 
-<p>
-  <b> Team: </b>
-  <% if @startup.team %>
-    <% for user in @startup.team.users %>
-      <p><%= user.full_name %></p>     
-    <% end %>
-  <% end %>
-</p>
-
-<%= link_to 'Edit', edit_startup_path(@startup) %> |
+<% if @owner.id == current_user.id %>
+	<%= link_to 'Edit', edit_startup_path(@startup) %> |
+<% end %>
 <%= link_to 'Back', startups_path %>
