@@ -41,9 +41,6 @@ function buildUserGrid(){
         $('.overlay', $(this)).fadeOut('fast');
     });
     
-    
-    
-    
     $(":text", $("#grid-filters")).labelify({ labelledClass: "labelHighlight" });
     
     //filter type
@@ -72,7 +69,6 @@ function buildUserGrid(){
                 if(major_data[i].text.toLowerCase().indexOf(query.term.toLowerCase()) > -1 || query.term.indexOf('Select Major') > -1 || query.term.length < 1){
                     data.results.push({id: major_data[i].id, text: major_data[i].text});
                 }
-                
             }
             query.callback(data);
         },
@@ -112,7 +108,56 @@ function buildUserGrid(){
     });
     $(".select2-container").css('width', '241px');
     $(".select2-search-field input.select2-default").css('width', '220px');
- }
+    
+    setFilterEvents();
+}
+
+function setFilterEvents(){
+
+    //user type
+    $('#filter-type label').click(function(e){
+        
+    });
+    
+    //user program
+    $('#filter-program label').click(function(e){
+        
+    });
+    
+    //user first name
+    $('#filter-first-name').change(function(e){
+    
+    });
+
+    //user last name
+    $('#filter-last-name').change(function(e){
+    
+    });
+    
+    //user majors
+    $('#filter-major').change(function(e){
+    
+    });
+    
+    //user minors
+    $('#filter-minor').change(function(e){
+    
+    });
+    
+    //user skills
+    $('#filter-skills').change(function(e){
+    
+    });
+    
+    //user interests
+    $('#filter-interests').change(function(e){
+    
+    });
+
+
+ 
+}
+ 
  
 function ajaxifyLoginForm() {
     $('#facebox .new_user_session').submit(function(){

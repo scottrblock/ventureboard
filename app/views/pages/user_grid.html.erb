@@ -41,7 +41,7 @@
 			<h3 class='<%= i.name.downcase%>'><%= i.getQuirkyName %></h3>
 			
 			<div class="clearfix <%= i.name.downcase%> user-box-wrap">
-				<% get_user_type(i.id).reverse.each_with_index do |e, i| %>
+				<% get_user_type(i.id).shuffle.each_with_index do |e, i| %>
 					<div class='user-grid-box <% if i % 3 == 0 %>first-col<% end %> <% if i % 3 == 2 %>last-col<% end %>'>
 						<%= gravatar_for(e, 220) %>
 						<div class='overlay'>
