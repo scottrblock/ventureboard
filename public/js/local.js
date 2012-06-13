@@ -113,10 +113,12 @@ function buildUserGrid(){
 }
 
 function setFilterEvents(){
-
+    
     //user type
     $('#filter-type label').click(function(e){
-        
+        var type_clicked = $(this).attr('for');
+        $('.user-box-wrap:not(.' + type_clicked + ')').slideToggle();
+        $('.user-grid h3:not(.' + type_clicked + ')').slideToggle();
     });
     
     //user program

@@ -36,13 +36,13 @@
 	</div>
 </div>
 <div class="thirteen columns alpha user-grid">
-	<% UserType.all.each do |i| %>
+	<% UserType.all.shuffle.each do |i| %>
 		<% unless i.name == "Advisor" %>
 			<h3 class='<%= i.name.downcase%>'><%= i.getQuirkyName %></h3>
 			
 			<div class="clearfix <%= i.name.downcase%> user-box-wrap">
 				<% get_user_type(i.id).shuffle.each_with_index do |e, i| %>
-					<div class='user-grid-box <% if i % 3 == 0 %>first-col<% end %> <% if i % 3 == 2 %>last-col<% end %>'>
+					<div class='user-grid-box <% if i % 3 == 0 %>first-col<% end %> <% if i % 3 == 2 %>last-col<% end %>' data-id='<%=e.id%>'>
 						<%= gravatar_for(e, 220) %>
 						<div class='overlay'>
 							<div class='full-name'>
